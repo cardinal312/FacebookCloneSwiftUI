@@ -11,6 +11,7 @@
 		FA55AA562B7BC5A600BCBB93 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55AA552B7BC5A600BCBB93 /* ContentView.swift */; };
 		FA55AA582B7BC5A900BCBB93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA55AA572B7BC5A900BCBB93 /* Assets.xcassets */; };
 		FA55AA5B2B7BC5A900BCBB93 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA55AA5A2B7BC5A900BCBB93 /* Preview Assets.xcassets */; };
+		FA55AA722B7BC7F700BCBB93 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55AA712B7BC7F700BCBB93 /* MainTabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		FA55AA552B7BC5A600BCBB93 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FA55AA572B7BC5A900BCBB93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA55AA5A2B7BC5A900BCBB93 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FA55AA712B7BC7F700BCBB93 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +53,11 @@
 		FA55AA522B7BC5A600BCBB93 /* FacebookClone */ = {
 			isa = PBXGroup;
 			children = (
-				FA55AA532B7BC5A600BCBB93 /* FacebookCloneApp.swift */,
+				FA55AA652B7BC5D400BCBB93 /* App */,
+				FA55AA642B7BC5D100BCBB93 /* Core */,
+				FA55AA632B7BC5CD00BCBB93 /* Model */,
+				FA55AA622B7BC5C900BCBB93 /* Service */,
+				FA55AA612B7BC5C400BCBB93 /* Utils */,
 				FA55AA552B7BC5A600BCBB93 /* ContentView.swift */,
 				FA55AA572B7BC5A900BCBB93 /* Assets.xcassets */,
 				FA55AA592B7BC5A900BCBB93 /* Preview Content */,
@@ -65,6 +71,131 @@
 				FA55AA5A2B7BC5A900BCBB93 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FA55AA612B7BC5C400BCBB93 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		FA55AA622B7BC5C900BCBB93 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		FA55AA632B7BC5CD00BCBB93 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FA55AA642B7BC5D100BCBB93 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				FA55AA6F2B7BC65700BCBB93 /* Authentification */,
+				FA55AA6E2B7BC65300BCBB93 /* Components */,
+				FA55AA6D2B7BC65000BCBB93 /* CreatePost */,
+				FA55AA6C2B7BC64D00BCBB93 /* Feed */,
+				FA55AA6B2B7BC64A00BCBB93 /* Friends */,
+				FA55AA6A2B7BC64600BCBB93 /* Markerplace */,
+				FA55AA692B7BC64200BCBB93 /* Menu */,
+				FA55AA682B7BC63F00BCBB93 /* Profile */,
+				FA55AA672B7BC63C00BCBB93 /* Root */,
+				FA55AA662B7BC63800BCBB93 /* Video */,
+				FA55AA702B7BC74700BCBB93 /* Tabbar */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		FA55AA652B7BC5D400BCBB93 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				FA55AA532B7BC5A600BCBB93 /* FacebookCloneApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		FA55AA662B7BC63800BCBB93 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
+		FA55AA672B7BC63C00BCBB93 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		FA55AA682B7BC63F00BCBB93 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		FA55AA692B7BC64200BCBB93 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		FA55AA6A2B7BC64600BCBB93 /* Markerplace */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Markerplace;
+			sourceTree = "<group>";
+		};
+		FA55AA6B2B7BC64A00BCBB93 /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Friends;
+			sourceTree = "<group>";
+		};
+		FA55AA6C2B7BC64D00BCBB93 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		FA55AA6D2B7BC65000BCBB93 /* CreatePost */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CreatePost;
+			sourceTree = "<group>";
+		};
+		FA55AA6E2B7BC65300BCBB93 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		FA55AA6F2B7BC65700BCBB93 /* Authentification */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Authentification;
+			sourceTree = "<group>";
+		};
+		FA55AA702B7BC74700BCBB93 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				FA55AA712B7BC7F700BCBB93 /* MainTabView.swift */,
+			);
+			path = Tabbar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +270,7 @@
 			files = (
 				FA55AA562B7BC5A600BCBB93 /* ContentView.swift in Sources */,
 				FA55AA542B7BC5A600BCBB93 /* FacebookCloneApp.swift in Sources */,
+				FA55AA722B7BC7F700BCBB93 /* MainTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
