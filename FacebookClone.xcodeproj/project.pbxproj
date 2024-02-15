@@ -10,6 +10,11 @@
 		FA1622532B7D1DCA00CEB6D2 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1622522B7D1DCA00CEB6D2 /* FeedView.swift */; };
 		FA1622562B7D266000CEB6D2 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1622552B7D266000CEB6D2 /* ProfileView.swift */; };
 		FA1622582B7D293E00CEB6D2 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1622572B7D293E00CEB6D2 /* HeaderView.swift */; };
+		FA20E6752B7E7016003670A8 /* MyStoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20E6742B7E7016003670A8 /* MyStoryCardView.swift */; };
+		FA20E6772B7E714F003670A8 /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20E6762B7E714F003670A8 /* DividerView.swift */; };
+		FA20E67A2B7E76BA003670A8 /* StoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20E6792B7E76BA003670A8 /* StoryCardView.swift */; };
+		FA20E67C2B7E7A4E003670A8 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20E67B2B7E7A4E003670A8 /* Helpers.swift */; };
+		FA20E67E2B7E7D3F003670A8 /* StoryFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20E67D2B7E7D3F003670A8 /* StoryFeedView.swift */; };
 		FA55AA542B7BC5A600BCBB93 /* FacebookCloneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55AA532B7BC5A600BCBB93 /* FacebookCloneApp.swift */; };
 		FA55AA562B7BC5A600BCBB93 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55AA552B7BC5A600BCBB93 /* ContentView.swift */; };
 		FA55AA582B7BC5A900BCBB93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA55AA572B7BC5A900BCBB93 /* Assets.xcassets */; };
@@ -21,6 +26,11 @@
 		FA1622522B7D1DCA00CEB6D2 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		FA1622552B7D266000CEB6D2 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		FA1622572B7D293E00CEB6D2 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		FA20E6742B7E7016003670A8 /* MyStoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStoryCardView.swift; sourceTree = "<group>"; };
+		FA20E6762B7E714F003670A8 /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
+		FA20E6792B7E76BA003670A8 /* StoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCardView.swift; sourceTree = "<group>"; };
+		FA20E67B2B7E7A4E003670A8 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		FA20E67D2B7E7D3F003670A8 /* StoryFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryFeedView.swift; sourceTree = "<group>"; };
 		FA55AA502B7BC5A600BCBB93 /* FacebookClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FacebookClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA55AA532B7BC5A600BCBB93 /* FacebookCloneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookCloneApp.swift; sourceTree = "<group>"; };
 		FA55AA552B7BC5A600BCBB93 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -46,6 +56,14 @@
 				FA1622552B7D266000CEB6D2 /* ProfileView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		FA20E6782B7E7335003670A8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FA20E6762B7E714F003670A8 /* DividerView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		FA55AA472B7BC5A600BCBB93 = {
@@ -90,6 +108,7 @@
 		FA55AA612B7BC5C400BCBB93 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				FA20E67B2B7E7A4E003670A8 /* Helpers.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -182,6 +201,9 @@
 			children = (
 				FA1622522B7D1DCA00CEB6D2 /* FeedView.swift */,
 				FA1622572B7D293E00CEB6D2 /* HeaderView.swift */,
+				FA20E6742B7E7016003670A8 /* MyStoryCardView.swift */,
+				FA20E6792B7E76BA003670A8 /* StoryCardView.swift */,
+				FA20E67D2B7E7D3F003670A8 /* StoryFeedView.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -196,6 +218,7 @@
 		FA55AA6E2B7BC65300BCBB93 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				FA20E6782B7E7335003670A8 /* Views */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -286,10 +309,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA1622532B7D1DCA00CEB6D2 /* FeedView.swift in Sources */,
+				FA20E67E2B7E7D3F003670A8 /* StoryFeedView.swift in Sources */,
 				FA1622582B7D293E00CEB6D2 /* HeaderView.swift in Sources */,
 				FA55AA562B7BC5A600BCBB93 /* ContentView.swift in Sources */,
+				FA20E67C2B7E7A4E003670A8 /* Helpers.swift in Sources */,
+				FA20E6752B7E7016003670A8 /* MyStoryCardView.swift in Sources */,
+				FA20E67A2B7E76BA003670A8 /* StoryCardView.swift in Sources */,
 				FA1622562B7D266000CEB6D2 /* ProfileView.swift in Sources */,
 				FA55AA542B7BC5A600BCBB93 /* FacebookCloneApp.swift in Sources */,
+				FA20E6772B7E714F003670A8 /* DividerView.swift in Sources */,
 				FA55AA722B7BC7F700BCBB93 /* MainTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

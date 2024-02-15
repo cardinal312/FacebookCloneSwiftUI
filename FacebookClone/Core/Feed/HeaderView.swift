@@ -41,7 +41,8 @@ struct HeaderView: View {
                     .foregroundStyle(.green)
             }
             .padding(.horizontal)
-            .padding(.vertical, 30)
+            .padding(.top, 30)
+            .padding(.bottom)
         }
     }
 }

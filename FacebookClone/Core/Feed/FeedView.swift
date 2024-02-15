@@ -8,15 +8,18 @@
 import SwiftUI
 
 struct FeedView: View {
-    private var facebookBlue: Color = Color(red: 26/255, green: 103/255, blue: 178/255)
+    private let facebookBlue = Helpers.Colors.facebookBlue
     
     var body: some View {
         NavigationStack {
-            VStack {
-                HeaderView()
-                .padding(.horizontal)
-                .padding(.vertical, 30)
-                Spacer()
+            GeometryReader { proxy in
+                VStack {
+                    HeaderView()
+                    DividerView(width: proxy.size.width)
+                    StoryFeedView()
+                    DividerView(width: proxy.size.width)
+                    Spacer()
+                }
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -41,7 +44,6 @@ struct FeedView: View {
                             .frame(width: 24, height: 24)
                     }
                 }
-
             }
         }
     }
