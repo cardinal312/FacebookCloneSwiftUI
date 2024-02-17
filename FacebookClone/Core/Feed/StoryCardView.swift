@@ -9,7 +9,7 @@ import SwiftUI
 
 struct StoryCardView: View {
     var body: some View {
-        Image("car1")
+        Image("madara")
             .resizable()
             .scaledToFill()
             .frame(width: 100, height: 170)
