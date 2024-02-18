@@ -8,8 +8,38 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @Environment(\.dismiss) private var dismiss
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        GeometryReader { proxy in
+            ScrollView {
+                VStack {
+                    ProfileHeaderView(width: proxy.size.width)
+                    DividerView(width: proxy.size.width)
+                        .padding(.top, 30)
+                }
+            }
+            .scrollIndicators(.hidden)
+            .navigationTitle("Cardinal 312")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        dismiss()
+                    }, label: {
+                        Image(systemName: "arrow.left")
+                            .foregroundStyle(.black)
+                            .fontWeight(.bold)
+                    })
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {}, label: {
+                        Image(systemName: "magnifyingglass")
+                            .foregroundStyle(.black)
+                            .fontWeight(.bold)
+                    })
+                }
+            }
+        }
     }
 }
 
@@ -18,3 +48,5 @@ struct ProfileView_Previews: PreviewProvider {
         ProfileView()
     }
 }
+
+

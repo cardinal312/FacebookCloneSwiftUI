@@ -24,7 +24,6 @@ struct FeedView: View {
                         }
                         DividerView(width: proxy.size.width - 15)
                         Spacer()
-                        
                     }
                     .toolbar {
                         ToolbarItem(placement: .navigationBarLeading) {

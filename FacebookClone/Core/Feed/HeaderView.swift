@@ -13,6 +13,7 @@ struct HeaderView: View {
         HStack {
             NavigationLink {
                 ProfileView()
+                    .navigationBarBackButtonHidden()
             } label: {
                 Image("me")
                     .resizable()
