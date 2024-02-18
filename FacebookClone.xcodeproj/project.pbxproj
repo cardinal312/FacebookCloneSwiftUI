@@ -25,6 +25,8 @@
 		FA55AA722B7BC7F700BCBB93 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55AA712B7BC7F700BCBB93 /* MainTabView.swift */; };
 		FAA1181A2B82402B00603175 /* ProfileOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA118192B82402B00603175 /* ProfileOptionsView.swift */; };
 		FAA1181C2B8246A400603175 /* ProfileFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1181B2B8246A400603175 /* ProfileFriendsView.swift */; };
+		FAA1181E2B8255F600603175 /* ManageProfilePostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1181D2B8255F600603175 /* ManageProfilePostsView.swift */; };
+		FAA118202B82592F00603175 /* ReelReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1181F2B82592F00603175 /* ReelReusableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,8 @@
 		FA55AA712B7BC7F700BCBB93 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		FAA118192B82402B00603175 /* ProfileOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOptionsView.swift; sourceTree = "<group>"; };
 		FAA1181B2B8246A400603175 /* ProfileFriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFriendsView.swift; sourceTree = "<group>"; };
+		FAA1181D2B8255F600603175 /* ManageProfilePostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageProfilePostsView.swift; sourceTree = "<group>"; };
+		FAA1181F2B82592F00603175 /* ReelReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReelReusableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,7 @@
 				FA3F19FD2B820F3A008E7426 /* ProfileHeaderView.swift */,
 				FAA118192B82402B00603175 /* ProfileOptionsView.swift */,
 				FAA1181B2B8246A400603175 /* ProfileFriendsView.swift */,
+				FAA1181D2B8255F600603175 /* ManageProfilePostsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -77,6 +82,7 @@
 				FA20E6762B7E714F003670A8 /* DividerView.swift */,
 				FA2EB1FD2B81151200517DBB /* PostView.swift */,
 				FA3F19FB2B820EBE008E7426 /* CustomButton.swift */,
+				FAA1181F2B82592F00603175 /* ReelReusableView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -335,10 +341,12 @@
 				FA1622562B7D266000CEB6D2 /* ProfileView.swift in Sources */,
 				FAA1181C2B8246A400603175 /* ProfileFriendsView.swift in Sources */,
 				FA55AA542B7BC5A600BCBB93 /* FacebookCloneApp.swift in Sources */,
+				FAA1181E2B8255F600603175 /* ManageProfilePostsView.swift in Sources */,
 				FA20E6772B7E714F003670A8 /* DividerView.swift in Sources */,
 				FA3F19FE2B820F3A008E7426 /* ProfileHeaderView.swift in Sources */,
 				FA2EB1FE2B81151200517DBB /* PostView.swift in Sources */,
 				FA55AA722B7BC7F700BCBB93 /* MainTabView.swift in Sources */,
+				FAA118202B82592F00603175 /* ReelReusableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

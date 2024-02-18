@@ -8,10 +8,7 @@
 import SwiftUI
 
 struct ProfileView: View {
-    
     @Environment(\.dismiss) private var dismiss
-    
-    
     
     var body: some View {
         GeometryReader { proxy in
@@ -23,6 +20,10 @@ struct ProfileView: View {
                     ProfileOptionsView()
                     ProfileFriendsView(width: proxy.size.width)
                     DividerView(width: proxy.size.width)
+                    ManageProfilePostsView(width: proxy.size.width)
+                    ForEach(0..<2) { _ in
+                        PostView()
+                    }
                 }
                 .scrollIndicators(.hidden)
                 .navigationTitle("Cardinal 312")
@@ -53,6 +54,5 @@ struct ProfileView: View {
             ProfileView()
         }
     }
-    
-    
 }
+
