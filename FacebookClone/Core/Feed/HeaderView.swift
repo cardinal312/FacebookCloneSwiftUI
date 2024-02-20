@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HeaderView: View {
+    @State private var showCreatePost: Bool = false
     
     var body: some View {
         HStack {
@@ -20,7 +21,9 @@ struct HeaderView: View {
                     .scaledToFill()
                     .frame(width: 40, height: 40)
                     .clipShape(Circle())
-                Button(action: {}, label: {
+                Button(action: {
+                    showCreatePost.toggle()
+                }, label: {
                     HStack {
                         Text("What's on your mind?")
                             .foregroundStyle(.black)
@@ -44,22 +47,12 @@ struct HeaderView: View {
             .padding(.horizontal)
             .padding(.top, 30)
             .padding(.bottom)
+            .fullScreenCover(isPresented: $showCreatePost, content: {
+                CreatePostView()
+            })
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
