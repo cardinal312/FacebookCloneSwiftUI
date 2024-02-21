@@ -16,6 +16,9 @@
 		FA20E67C2B7E7A4E003670A8 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20E67B2B7E7A4E003670A8 /* Helpers.swift */; };
 		FA20E67E2B7E7D3F003670A8 /* StoryFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20E67D2B7E7D3F003670A8 /* StoryFeedView.swift */; };
 		FA2EB1FE2B81151200517DBB /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2EB1FD2B81151200517DBB /* PostView.swift */; };
+		FA3414EA2B8665F0003C5177 /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3414E92B8665F0003C5177 /* FriendsView.swift */; };
+		FA3414EC2B866866003C5177 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3414EB2B866866003C5177 /* TagView.swift */; };
+		FA3414EE2B866D19003C5177 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3414ED2B866D19003C5177 /* FriendCell.swift */; };
 		FA3F19FC2B820EBE008E7426 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3F19FB2B820EBE008E7426 /* CustomButton.swift */; };
 		FA3F19FE2B820F3A008E7426 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3F19FD2B820F3A008E7426 /* ProfileHeaderView.swift */; };
 		FA4F16F22B84FA6C008EC0A2 /* CreatePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4F16F12B84FA6C008EC0A2 /* CreatePostView.swift */; };
@@ -41,6 +44,9 @@
 		FA20E67B2B7E7A4E003670A8 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		FA20E67D2B7E7D3F003670A8 /* StoryFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryFeedView.swift; sourceTree = "<group>"; };
 		FA2EB1FD2B81151200517DBB /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		FA3414E92B8665F0003C5177 /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
+		FA3414EB2B866866003C5177 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		FA3414ED2B866D19003C5177 /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		FA3F19FB2B820EBE008E7426 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		FA3F19FD2B820F3A008E7426 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		FA4F16F12B84FA6C008EC0A2 /* CreatePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostView.swift; sourceTree = "<group>"; };
@@ -88,8 +94,18 @@
 				FA3F19FB2B820EBE008E7426 /* CustomButton.swift */,
 				FAA1181F2B82592F00603175 /* ReelReusableView.swift */,
 				FA4F16F32B8500DF008EC0A2 /* ChoiceView.swift */,
+				FA3414EB2B866866003C5177 /* TagView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		FA3414E82B8665D0003C5177 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA3414E92B8665F0003C5177 /* FriendsView.swift */,
+				FA3414ED2B866D19003C5177 /* FriendCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		FA55AA472B7BC5A600BCBB93 = {
@@ -218,6 +234,7 @@
 		FA55AA6B2B7BC64A00BCBB93 /* Friends */ = {
 			isa = PBXGroup;
 			children = (
+				FA3414E82B8665D0003C5177 /* View */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -335,6 +352,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA3414EA2B8665F0003C5177 /* FriendsView.swift in Sources */,
 				FA3F19FC2B820EBE008E7426 /* CustomButton.swift in Sources */,
 				FAA1181A2B82402B00603175 /* ProfileOptionsView.swift in Sources */,
 				FA1622532B7D1DCA00CEB6D2 /* FeedView.swift in Sources */,
@@ -347,7 +365,9 @@
 				FA1622562B7D266000CEB6D2 /* ProfileView.swift in Sources */,
 				FAA1181C2B8246A400603175 /* ProfileFriendsView.swift in Sources */,
 				FA55AA542B7BC5A600BCBB93 /* FacebookCloneApp.swift in Sources */,
+				FA3414EC2B866866003C5177 /* TagView.swift in Sources */,
 				FAA1181E2B8255F600603175 /* ManageProfilePostsView.swift in Sources */,
+				FA3414EE2B866D19003C5177 /* FriendCell.swift in Sources */,
 				FA20E6772B7E714F003670A8 /* DividerView.swift in Sources */,
 				FA3F19FE2B820F3A008E7426 /* ProfileHeaderView.swift in Sources */,
 				FA4F16F22B84FA6C008EC0A2 /* CreatePostView.swift in Sources */,

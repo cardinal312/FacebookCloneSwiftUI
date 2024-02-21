@@ -42,10 +42,10 @@ struct FeedView: View {
                                     .scaledToFill()
                                     .frame(width: 24, height: 24)
                                     .font(.system(size: 18, weight: .bold))
-                                Image(systemName: "message")
+                                Image("messagerFB")
                                     .resizable()
                                     .scaledToFill()
-                                    .frame(width: 24, height: 24)
+                                    .frame(width: 28, height: 28)
                             }
                         }
                     }

@@ -28,7 +28,7 @@ struct MainTabView: View {
                 .onAppear {
                    tabSelection = 1
                 }
-            Text("Friends")
+            FriendsView()
                 .tabItem {
                     Image(systemName: "person.2")
                         .environment(\.symbolVariants, tabSelection == 2 ? .fill : .none)
@@ -38,8 +38,8 @@ struct MainTabView: View {
                 }
             Text("MarketPlace")
                 .tabItem {
-                    Image(systemName: "airplane") // Shoild be change to real image
-                        .environment(\.symbolVariants, tabSelection == 3 ? .fill : .none)
+                    Image("marketplaceIcon")
+                        .environment(\.symbolVariants, tabSelection == 3 ? .square : .none)
                 }
                 .onAppear {
                    tabSelection = 3
