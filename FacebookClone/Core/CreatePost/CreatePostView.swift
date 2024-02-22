@@ -52,7 +52,7 @@ struct CreatePostView: View {
                             .foregroundStyle(.yellow)
                     })
                     Button(action: {}, label: {
-                        Image(systemName: "pin")
+                        Image("pin")
                             .resizable()
                             .frame(width: 18, height: 18)
                             .foregroundStyle(.red)

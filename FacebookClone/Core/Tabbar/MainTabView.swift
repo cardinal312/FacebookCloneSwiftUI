@@ -36,10 +36,12 @@ struct MainTabView: View {
                 .onAppear {
                    tabSelection = 2
                 }
-            Text("MarketPlace")
+            MarketPlaceView()
                 .tabItem {
-                    Image("marketplaceIcon")
-                        .environment(\.symbolVariants, tabSelection == 3 ? .square : .none)
+                    VStack {
+                        Image("marketplaceIcon")
+                            .environment(\.symbolVariants, tabSelection == 3 ? .fill : .none)
+                    }
                 }
                 .onAppear {
                    tabSelection = 3
