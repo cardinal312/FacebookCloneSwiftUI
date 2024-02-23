@@ -10,6 +10,9 @@
 		FA1622532B7D1DCA00CEB6D2 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1622522B7D1DCA00CEB6D2 /* FeedView.swift */; };
 		FA1622562B7D266000CEB6D2 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1622552B7D266000CEB6D2 /* ProfileView.swift */; };
 		FA1622582B7D293E00CEB6D2 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1622572B7D293E00CEB6D2 /* HeaderView.swift */; };
+		FA1FF1272B8909780068BF68 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1FF1262B8909780068BF68 /* MenuView.swift */; };
+		FA1FF1292B890F630068BF68 /* MenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1FF1282B890F630068BF68 /* MenuHeaderView.swift */; };
+		FA1FF12B2B891B680068BF68 /* ShortCutsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1FF12A2B891B680068BF68 /* ShortCutsView.swift */; };
 		FA20E6752B7E7016003670A8 /* MyStoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20E6742B7E7016003670A8 /* MyStoryCardView.swift */; };
 		FA20E6772B7E714F003670A8 /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20E6762B7E714F003670A8 /* DividerView.swift */; };
 		FA20E67A2B7E76BA003670A8 /* StoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20E6792B7E76BA003670A8 /* StoryCardView.swift */; };
@@ -40,6 +43,9 @@
 		FA1622522B7D1DCA00CEB6D2 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		FA1622552B7D266000CEB6D2 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		FA1622572B7D293E00CEB6D2 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		FA1FF1262B8909780068BF68 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		FA1FF1282B890F630068BF68 /* MenuHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHeaderView.swift; sourceTree = "<group>"; };
+		FA1FF12A2B891B680068BF68 /* ShortCutsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortCutsView.swift; sourceTree = "<group>"; };
 		FA20E6742B7E7016003670A8 /* MyStoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStoryCardView.swift; sourceTree = "<group>"; };
 		FA20E6762B7E714F003670A8 /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
 		FA20E6792B7E76BA003670A8 /* StoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCardView.swift; sourceTree = "<group>"; };
@@ -86,6 +92,16 @@
 				FAA118192B82402B00603175 /* ProfileOptionsView.swift */,
 				FAA1181B2B8246A400603175 /* ProfileFriendsView.swift */,
 				FAA1181D2B8255F600603175 /* ManageProfilePostsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FA1FF1252B89095D0068BF68 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA1FF1262B8909780068BF68 /* MenuView.swift */,
+				FA1FF1282B890F630068BF68 /* MenuHeaderView.swift */,
+				FA1FF12A2B891B680068BF68 /* ShortCutsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -224,6 +240,7 @@
 		FA55AA692B7BC64200BCBB93 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				FA1FF1252B89095D0068BF68 /* View */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -366,6 +383,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA1FF12B2B891B680068BF68 /* ShortCutsView.swift in Sources */,
 				FA3414EA2B8665F0003C5177 /* FriendsView.swift in Sources */,
 				FA3F19FC2B820EBE008E7426 /* CustomButton.swift in Sources */,
 				FAA1181A2B82402B00603175 /* ProfileOptionsView.swift in Sources */,
@@ -373,6 +391,7 @@
 				FA20E67E2B7E7D3F003670A8 /* StoryFeedView.swift in Sources */,
 				FA1622582B7D293E00CEB6D2 /* HeaderView.swift in Sources */,
 				FA55AA562B7BC5A600BCBB93 /* ContentView.swift in Sources */,
+				FA1FF1272B8909780068BF68 /* MenuView.swift in Sources */,
 				FA20E67C2B7E7A4E003670A8 /* Helpers.swift in Sources */,
 				FA20E6752B7E7016003670A8 /* MyStoryCardView.swift in Sources */,
 				FA20E67A2B7E76BA003670A8 /* StoryCardView.swift in Sources */,
@@ -382,6 +401,7 @@
 				FA3414EC2B866866003C5177 /* TagView.swift in Sources */,
 				FAA1181E2B8255F600603175 /* ManageProfilePostsView.swift in Sources */,
 				FA3414EE2B866D19003C5177 /* FriendCell.swift in Sources */,
+				FA1FF1292B890F630068BF68 /* MenuHeaderView.swift in Sources */,
 				FA20E6772B7E714F003670A8 /* DividerView.swift in Sources */,
 				FA3F19FE2B820F3A008E7426 /* ProfileHeaderView.swift in Sources */,
 				FA4F16F22B84FA6C008EC0A2 /* CreatePostView.swift in Sources */,
