@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MarketPlaceViewModel: ObservableObject {
+final class MarketPlaceViewModel: ObservableObject {
     
     @Published var items: [Item] = [
         .init(id: UUID().uuidString, item_name: "1 bad 1 bathroom", item_price: 950, imageName: "appartment1"),

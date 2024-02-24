@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FriendsView: View {
+    @StateObject var viewModel = FriendViewModel()
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -23,7 +24,7 @@ struct FriendsView: View {
                         Text("Friends requests")
                             .font(.headline)
                             .fontWeight(.semibold)
-                        Text("3")
+                        Text("\(viewModel.friendsRequests.count)")
                             .font(.headline)
                             .fontWeight(.semibold)
                             .foregroundStyle(.red)
@@ -33,8 +34,8 @@ struct FriendsView: View {
                         })
                     }
                     .padding(.horizontal)
-                    ForEach(0..<3) { _ in
-                        FriendCell()
+                    ForEach(0 ..< viewModel.friendsRequests.count) { index in
+                        FriendCell(viewModel: viewModel, index: index)
                     }
                     Spacer()
                 }
