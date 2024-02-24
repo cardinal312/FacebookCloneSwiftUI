@@ -6,8 +6,15 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct PostView: View {
+    private var isVideo: Bool = false
+    
+    init(isVideo: Bool) {
+        self.isVideo = isVideo
+    }
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -40,9 +47,17 @@ struct PostView: View {
             .padding(.horizontal)
             Text("Time to party with the team")
                 .padding(.horizontal)
-            Image("team")
-                .resizable()
-                .scaledToFill()
+            if !isVideo {
+                Image("team")
+                    .resizable()
+                    .scaledToFill()
+            } else {
+                //MARK: - AVKit Video
+                if let url = URL(string: Helpers.VideoUrl.bigBuckBunny) {
+                    VideoPlayer(player: AVPlayer(url: url))
+                        .frame(width: 40)
+                }
+            }
             HStack(spacing: 3) {
                 Image(systemName: "hand.thumbsup")
                     .resizable()
@@ -90,8 +105,3 @@ struct PostView: View {
     }
 }
 
-struct PostView_Previews: PreviewProvider {
-    static var previews: some View {
-        PostView()
-    }
-}

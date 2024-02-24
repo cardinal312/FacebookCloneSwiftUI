@@ -35,6 +35,9 @@
 		FA8209C62B87B12800EB175C /* MarketPlaceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8209C52B87B12800EB175C /* MarketPlaceButton.swift */; };
 		FA8884B32B89818100341890 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8884B22B89818100341890 /* MenuCell.swift */; };
 		FA8884B62B8983E400341890 /* CustomButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8884B52B8983E400341890 /* CustomButtonModifier.swift */; };
+		FA8884B92B8989C600341890 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8884B82B8989C600341890 /* VideoView.swift */; };
+		FA8884BB2B898E0F00341890 /* VideoOptionViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8884BA2B898E0F00341890 /* VideoOptionViewModifier.swift */; };
+		FA8884BE2B8995BA00341890 /* VideoOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8884BD2B8995BA00341890 /* VideoOptionsView.swift */; };
 		FAA1181A2B82402B00603175 /* ProfileOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA118192B82402B00603175 /* ProfileOptionsView.swift */; };
 		FAA1181C2B8246A400603175 /* ProfileFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1181B2B8246A400603175 /* ProfileFriendsView.swift */; };
 		FAA1181E2B8255F600603175 /* ManageProfilePostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1181D2B8255F600603175 /* ManageProfilePostsView.swift */; };
@@ -71,6 +74,10 @@
 		FA8209C52B87B12800EB175C /* MarketPlaceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketPlaceButton.swift; sourceTree = "<group>"; };
 		FA8884B22B89818100341890 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		FA8884B52B8983E400341890 /* CustomButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonModifier.swift; sourceTree = "<group>"; };
+		FA8884B82B8989C600341890 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
+		FA8884BA2B898E0F00341890 /* VideoOptionViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoOptionViewModifier.swift; sourceTree = "<group>"; };
+		FA8884BC2B89943200341890 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		FA8884BD2B8995BA00341890 /* VideoOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoOptionsView.swift; sourceTree = "<group>"; };
 		FAA118192B82402B00603175 /* ProfileOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOptionsView.swift; sourceTree = "<group>"; };
 		FAA1181B2B8246A400603175 /* ProfileFriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFriendsView.swift; sourceTree = "<group>"; };
 		FAA1181D2B8255F600603175 /* ManageProfilePostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageProfilePostsView.swift; sourceTree = "<group>"; };
@@ -152,6 +159,7 @@
 		FA55AA522B7BC5A600BCBB93 /* FacebookClone */ = {
 			isa = PBXGroup;
 			children = (
+				FA8884BC2B89943200341890 /* Info.plist */,
 				FA55AA652B7BC5D400BCBB93 /* App */,
 				FA55AA642B7BC5D100BCBB93 /* Core */,
 				FA55AA632B7BC5CD00BCBB93 /* Model */,
@@ -223,6 +231,7 @@
 		FA55AA662B7BC63800BCBB93 /* Video */ = {
 			isa = PBXGroup;
 			children = (
+				FA8884B72B8989A000341890 /* View */,
 			);
 			path = Video;
 			sourceTree = "<group>";
@@ -323,8 +332,18 @@
 			isa = PBXGroup;
 			children = (
 				FA8884B52B8983E400341890 /* CustomButtonModifier.swift */,
+				FA8884BA2B898E0F00341890 /* VideoOptionViewModifier.swift */,
 			);
 			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
+		FA8884B72B8989A000341890 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA8884B82B8989C600341890 /* VideoView.swift */,
+				FA8884BD2B8995BA00341890 /* VideoOptionsView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -400,11 +419,13 @@
 				FA1FF12B2B891B680068BF68 /* ShortCutsView.swift in Sources */,
 				FA8884B32B89818100341890 /* MenuCell.swift in Sources */,
 				FA3414EA2B8665F0003C5177 /* FriendsView.swift in Sources */,
+				FA8884BE2B8995BA00341890 /* VideoOptionsView.swift in Sources */,
 				FA3F19FC2B820EBE008E7426 /* CustomButton.swift in Sources */,
 				FAA1181A2B82402B00603175 /* ProfileOptionsView.swift in Sources */,
 				FA1622532B7D1DCA00CEB6D2 /* FeedView.swift in Sources */,
 				FA20E67E2B7E7D3F003670A8 /* StoryFeedView.swift in Sources */,
 				FA1622582B7D293E00CEB6D2 /* HeaderView.swift in Sources */,
+				FA8884B92B8989C600341890 /* VideoView.swift in Sources */,
 				FA55AA562B7BC5A600BCBB93 /* ContentView.swift in Sources */,
 				FA8884B62B8983E400341890 /* CustomButtonModifier.swift in Sources */,
 				FA1FF1272B8909780068BF68 /* MenuView.swift in Sources */,
@@ -414,6 +435,7 @@
 				FA1622562B7D266000CEB6D2 /* ProfileView.swift in Sources */,
 				FAA1181C2B8246A400603175 /* ProfileFriendsView.swift in Sources */,
 				FA55AA542B7BC5A600BCBB93 /* FacebookCloneApp.swift in Sources */,
+				FA8884BB2B898E0F00341890 /* VideoOptionViewModifier.swift in Sources */,
 				FA3414EC2B866866003C5177 /* TagView.swift in Sources */,
 				FAA1181E2B8255F600603175 /* ManageProfilePostsView.swift in Sources */,
 				FA3414EE2B866D19003C5177 /* FriendCell.swift in Sources */,
@@ -558,6 +580,7 @@
 				DEVELOPMENT_TEAM = 8A8R6ZQST8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FacebookClone/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -587,6 +610,7 @@
 				DEVELOPMENT_TEAM = 8A8R6ZQST8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FacebookClone/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

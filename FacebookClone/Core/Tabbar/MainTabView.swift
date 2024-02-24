@@ -20,7 +20,7 @@ struct MainTabView: View {
                 .onAppear {
                    tabSelection = 0
                 }
-            Text("Video")
+            VideoView()
                 .tabItem {
                     Image(systemName: "play.tv")
                         .environment(\.symbolVariants, tabSelection == 1 ? .fill : .none)
@@ -46,7 +46,7 @@ struct MainTabView: View {
                 .onAppear {
                    tabSelection = 3
                 }
-            Text("Menu")
+            MenuView()
                 .tabItem {
                     Image(systemName: "text.justify")
                         .environment(\.symbolVariants, tabSelection == 4 ? .fill : .none)
