@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct MyStoryCardView: View {
+    @StateObject private var viewModel: FeedViewModel
+    init(viewModel: FeedViewModel) {
+        self._viewModel = StateObject(wrappedValue: viewModel)
+    }
+    
     var body: some View {
         ZStack(alignment: .top) {
             RoundedRectangle(cornerRadius: 15)
                 .foregroundStyle(Color(.systemGray4))
                 .frame(width: 100, height: 170)
-            Image("me")
+            Image(viewModel.users[0].profileImageName ?? "")
                 .resizable()
                 .scaledToFill()
                 .frame(width: 100, height: 100)
@@ -46,6 +51,6 @@ struct MyStoryCardView: View {
 
 struct StoryView_Previews: PreviewProvider {
     static var previews: some View {
-        MyStoryCardView()
+        MyStoryCardView(viewModel: FeedViewModel())
     }
 }

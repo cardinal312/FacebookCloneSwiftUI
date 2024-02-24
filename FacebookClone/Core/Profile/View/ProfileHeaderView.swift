@@ -9,14 +9,16 @@ import SwiftUI
 
 struct ProfileHeaderView: View {
     private let width: CGFloat
+    @StateObject private var viewModel: FeedViewModel
     
-    init(width: CGFloat) {
+    init(width: CGFloat, viewModel: FeedViewModel) {
         self.width = width
+        self._viewModel = StateObject(wrappedValue: viewModel)
     }
     
     var body: some View {
         VStack {
-            Image("bruce") // should be exchange to assets image
+            Image(viewModel.users[0].coverImageName ?? "")
                 .resizable()
                 .scaledToFill()
                 .frame(width: width, height: 250)
@@ -25,7 +27,7 @@ struct ProfileHeaderView: View {
         }
         .overlay {
             VStack(alignment: .leading) {
-                Image("me")
+                Image(viewModel.users[0].profileImageName ?? "")
                     .resizable()
                     .scaledToFill()
                     .frame(width: 120, height: 120)
@@ -35,10 +37,10 @@ struct ProfileHeaderView: View {
                             .stroke(Color(.systemGray6) ,lineWidth: 3)
                     }
                     .padding(.top, 170)
-                Text("Cardinal 312")
+                Text("\(viewModel.users[0].firstName) \(viewModel.users[0].familyName)")
                     .font(.title)
                     .fontWeight(.bold)
-                Text("4 ")
+                Text("\(viewModel.friends.count) ")
                     .font(.headline) +
                 Text("Friends")
                     .font(.headline)

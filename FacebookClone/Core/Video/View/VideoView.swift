@@ -13,7 +13,7 @@ struct VideoView: View {
             ScrollView {
                 VideoOptionsView()
                 ForEach(0 ..< 3) { _ in
-                    PostView(isVideo: true)
+                    PostView(isVideo: true, viewModel: FeedViewModel(), index: 0)
                 }
             }
             .scrollIndicators(.hidden)

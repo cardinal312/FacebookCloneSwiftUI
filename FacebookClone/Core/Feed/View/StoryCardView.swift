@@ -8,15 +8,23 @@
 import SwiftUI
 
 struct StoryCardView: View {
+    @StateObject private var viewModel: FeedViewModel
+    private var index: Int
+    
+    init(viewModel: FeedViewModel, index: Int) {
+        self._viewModel = StateObject(wrappedValue: viewModel)
+        self.index = index
+    }
+    
     var body: some View {
-        Image("madara")
+        Image(viewModel.friends[index].coverImageName ?? "")
             .resizable()
             .scaledToFill()
             .frame(width: 100, height: 170)
             .clipShape(RoundedRectangle(cornerRadius: 15))
             .overlay {
                 VStack(alignment: .leading) {
-                    Image("me")
+                    Image(viewModel.friends[index].profileImageName ?? "")
                         .resizable()
                         .scaledToFill()
                         .frame(width: 35, height: 35)
@@ -26,7 +34,7 @@ struct StoryCardView: View {
                                 .stroke(.blue, lineWidth: 3)
                         }
                     Spacer()
-                    Text("Jim Halpert")
+                    Text("\(viewModel.friends[index].firstName) \(viewModel.friends[index].familyName)")
                         .foregroundStyle(.white)
                         .font(.system(size: 12, weight: .semibold))
                     HStack { Spacer() }
@@ -39,6 +47,6 @@ struct StoryCardView: View {
 
 struct StoryCardView_Previews: PreviewProvider {
     static var previews: some View {
-        StoryCardView()
+        StoryCardView(viewModel: FeedViewModel(), index: 0)
     }
 }

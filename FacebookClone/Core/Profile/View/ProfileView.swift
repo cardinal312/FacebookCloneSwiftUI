@@ -9,20 +9,25 @@ import SwiftUI
 
 struct ProfileView: View {
     @Environment(\.dismiss) private var dismiss
+    @StateObject private var viewModel: FeedViewModel
+    
+    init(viewModel: FeedViewModel) {
+        self._viewModel = StateObject(wrappedValue: viewModel)
+    }
     
     var body: some View {
         GeometryReader { proxy in
             ScrollView {
                 VStack {
-                    ProfileHeaderView(width: proxy.size.width)
+                    ProfileHeaderView(width: proxy.size.width, viewModel: viewModel)
                     DividerView(width: proxy.size.width)
                         .padding(.top, 30)
                     ProfileOptionsView()
-                    ProfileFriendsView(width: proxy.size.width)
+                    ProfileFriendsView(width: proxy.size.width, viewModel: viewModel)
                     DividerView(width: proxy.size.width)
                     ManageProfilePostsView(width: proxy.size.width)
-                    ForEach(0..<2) { _ in
-                        PostView(isVideo: false)
+                    ForEach(0..<viewModel.posts.count) { index in
+                        PostView(isVideo: false, viewModel: viewModel, index: index)
                     }
                 }
                 .scrollIndicators(.hidden)
@@ -51,7 +56,7 @@ struct ProfileView: View {
     
     struct ProfileView_Previews: PreviewProvider {
         static var previews: some View {
-            ProfileView()
+            ProfileView(viewModel: FeedViewModel())
         }
     }
 }

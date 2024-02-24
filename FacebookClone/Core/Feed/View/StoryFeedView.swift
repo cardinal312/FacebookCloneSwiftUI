@@ -8,12 +8,18 @@
 import SwiftUI
 
 struct StoryFeedView: View {
+    @StateObject private var viewModel: FeedViewModel
+    
+    init(viewModel: FeedViewModel) {
+        self._viewModel = StateObject(wrappedValue: viewModel)
+    }
+    
     var body: some View {
         ScrollView(.horizontal) {
             HStack {
-                MyStoryCardView()
-                ForEach(0..<9) { _ in
-                    StoryCardView()
+                MyStoryCardView(viewModel: viewModel)
+                ForEach(0..<viewModel.friends.count) { index in
+                    StoryCardView(viewModel: viewModel, index: index)
                 }
             }
         }
@@ -24,6 +30,6 @@ struct StoryFeedView: View {
 
 struct StoryFeedView_Previews: PreviewProvider {
     static var previews: some View {
-        StoryFeedView()
+        StoryFeedView(viewModel: FeedViewModel())
     }
 }

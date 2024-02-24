@@ -10,8 +10,11 @@ import SwiftUI
 struct ProfileFriendsView: View {
     
     private let width: CGFloat
-    init(width: CGFloat) {
+    @StateObject private var viewModel: FeedViewModel
+    
+    init(width: CGFloat, viewModel: FeedViewModel) {
         self.width = width
+        self._viewModel = StateObject(wrappedValue: viewModel)
     }
     
     private let gridItems: [GridItem] = [
@@ -27,7 +30,7 @@ struct ProfileFriendsView: View {
                     Text("Friends")
                         .font(.headline)
                         .fontWeight(.semibold)
-                    Text("4 friends")
+                    Text("\(viewModel.friends.count) friends")
                         .font(.subheadline)
                         .foregroundStyle(.gray)
                 }
@@ -39,14 +42,14 @@ struct ProfileFriendsView: View {
             .padding(.horizontal)
             
             LazyVGrid(columns: gridItems) {
-                ForEach(0 ..< 4) { _ in
+                ForEach(viewModel.friends) { friend in
                     VStack {
-                        Image("team")
+                        Image(friend.profileImageName ?? "")
                             .resizable()
                             .scaledToFill()
                             .frame(width: (width / 3) - 20, height: (width / 3) - 20 )
                             .clipShape(RoundedRectangle(cornerRadius: 8))
-                        Text("Jim Helpert")
+                        Text("\(friend.firstName) \(friend.familyName)")
                             .font(.headline)
                             .fontWeight(.semibold)
                     }

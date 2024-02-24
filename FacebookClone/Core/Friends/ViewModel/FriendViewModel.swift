@@ -27,5 +27,3 @@ final class FriendViewModel: ObservableObject {
         self.friendsRequests = self.users.filter { self.users[0].friendsRequestsIDs.contains($0.id)}
     }
 }
-
-//TODO: - Should be change tommy1 to profilePic1(jim)

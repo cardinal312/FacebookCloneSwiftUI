@@ -10,21 +10,25 @@ import AVKit
 
 struct PostView: View {
     private var isVideo: Bool = false
+    @StateObject private var viewModel: FeedViewModel
+    private var index: Int
     
-    init(isVideo: Bool) {
+    init(isVideo: Bool, viewModel: FeedViewModel, index: Int) {
         self.isVideo = isVideo
+        self._viewModel = StateObject(wrappedValue: viewModel)
+        self.index = index
     }
     
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Image("me")
+                Image(viewModel.posts[index].user?.profileImageName ?? "")
                     .resizable()
                     .scaledToFill()
                     .frame(width: 40, height: 40)
                     .cornerRadius(.infinity)
                 VStack(alignment: .leading, spacing: 0) {
-                    Text("Cardinal 312")
+                    Text("\(viewModel.posts[index].user?.firstName ?? "") \(viewModel.posts[index].user?.familyName ?? "")")
                         .font(.system(size: 14, weight: .semibold))
                     HStack(spacing: 5) {
                         Text("1 d")
@@ -45,10 +49,10 @@ struct PostView: View {
                 .fontWeight(.bold)
             }
             .padding(.horizontal)
-            Text("Time to party with the team")
+            Text(viewModel.posts[index].postTitle)
                 .padding(.horizontal)
             if !isVideo {
-                Image("team")
+                Image(viewModel.posts[index].postUrl)
                     .resizable()
                     .scaledToFill()
             } else {
