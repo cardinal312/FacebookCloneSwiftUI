@@ -26,12 +26,12 @@ struct ProfileView: View {
                     ProfileFriendsView(width: proxy.size.width, viewModel: viewModel)
                     DividerView(width: proxy.size.width)
                     ManageProfilePostsView(width: proxy.size.width)
-                    ForEach(0..<viewModel.posts.count) { index in
-                        PostView(isVideo: false, viewModel: viewModel, index: index)
+                    ForEach(0..<viewModel.myPostIndexes.count) { index in
+                        PostView(isVideo: false, viewModel: viewModel, index: viewModel.myPostIndexes[index])
                     }
                 }
                 .scrollIndicators(.hidden)
-                .navigationTitle("Cardinal 312")
+                .navigationTitle("\(viewModel.users[0].firstName) \(viewModel.users[0].familyName)")
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button(action: {

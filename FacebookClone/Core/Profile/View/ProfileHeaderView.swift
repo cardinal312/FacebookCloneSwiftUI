@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct ProfileHeaderView: View {
     private let width: CGFloat
     @StateObject private var viewModel: FeedViewModel
+    @State private var showProfileImagePicker: Bool = false
+    @State private var showCoverImagePicker: Bool = false
     
     init(width: CGFloat, viewModel: FeedViewModel) {
         self.width = width
@@ -18,25 +21,33 @@ struct ProfileHeaderView: View {
     
     var body: some View {
         VStack {
-            Image(viewModel.users[0].coverImageName ?? "")
-                .resizable()
-                .scaledToFill()
-                .frame(width: width, height: 250)
+            Button {
+                showCoverImagePicker.toggle()
+            } label: {
+                viewModel.coverImage
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: width, height: 250)
+            }
             Color.white
                 .frame(height: 100)
         }
         .overlay {
             VStack(alignment: .leading) {
-                Image(viewModel.users[0].profileImageName ?? "")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 120, height: 120)
-                    .clipShape(Circle())
-                    .overlay {
-                        Circle()
-                            .stroke(Color(.systemGray6) ,lineWidth: 3)
-                    }
-                    .padding(.top, 170)
+                Button {
+                    showProfileImagePicker.toggle()
+                } label: {
+                    viewModel.profileImage
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 120, height: 120)
+                        .clipShape(Circle())
+                        .overlay {
+                            Circle()
+                                .stroke(Color(.systemGray6) ,lineWidth: 3)
+                        }
+                        .padding(.top, 170)
+                }
                 Text("\(viewModel.users[0].firstName) \(viewModel.users[0].familyName)")
                     .font(.title)
                     .fontWeight(.bold)
@@ -55,6 +66,8 @@ struct ProfileHeaderView: View {
             }
             .padding(.horizontal)
         }
+        .photosPicker(isPresented: $showProfileImagePicker, selection: $viewModel.selectedImage)
+        .photosPicker(isPresented: $showCoverImagePicker, selection: $viewModel.selectedCoverImage)
     }
 }
 

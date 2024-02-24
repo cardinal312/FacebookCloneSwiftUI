@@ -50,7 +50,7 @@ struct ProfileFriendsView: View {
                             .frame(width: (width / 3) - 20, height: (width / 3) - 20 )
                             .clipShape(RoundedRectangle(cornerRadius: 8))
                         Text("\(friend.firstName) \(friend.familyName)")
-                            .font(.headline)
+                            .font(.subheadline)
                             .fontWeight(.semibold)
                     }
                 }

@@ -5,7 +5,8 @@
 //  Created by Macbook on 24/2/24.
 //
 
-import Foundation
+import SwiftUI
+import PhotosUI
 
 final class FeedViewModel: ObservableObject {
     
@@ -24,8 +25,23 @@ final class FeedViewModel: ObservableObject {
     
     @Published var posts: [Post] = [
         .init(id: "0", userId: "3", postTitle: "Best team ever", postLikes: 2, postShares: 2, postUrl: "team", isVideo: false),
-        .init(id: "1", userId: "0", postTitle: "Just hurd work every day 😉", postLikes: 3, postShares: 4, postUrl: "cover_picture", isVideo: false),
+        .init(id: "1", userId: "0", postTitle: "Just hurd work every day 😉", postLikes: 3, postShares: 4, postUrl: "cover_picture", isVideo: false)
     ]
+    
+    @Published var myPostIndexes: [Int] = []
+    @Published var selectedImage: PhotosPickerItem? {
+        didSet {
+            Task { try await loadImage(fromItem: selectedImage)}
+        }
+    }
+    @Published var selectedCoverImage: PhotosPickerItem? {
+        didSet {
+            Task { try await loadCoverImage(fromItem: selectedCoverImage)}
+        }
+    }
+    @Published var profileImage: Image = Image("no_profile")
+    @Published var coverImage: Image = Image("no_profile")
+    private var uiImage: UIImage?
     
     init() {
         setupFriends()
@@ -39,7 +55,28 @@ final class FeedViewModel: ObservableObject {
     private func setupPosts() {
         for index in (0 ..< posts.count) {
             posts[index].user = users.first(where: { $0.id == posts[index].userId })
+            if posts[index].user == users[0] {
+                myPostIndexes.append(index)
+            }
         }
+    }
+    
+    @MainActor
+    func loadImage(fromItem item: PhotosPickerItem?) async throws {
+        guard let item = item else { return }
+        guard let data = try? await item.loadTransferable(type: Data.self) else { print("DATA ERROR"); return }
+        guard let uiImage = UIImage(data: data) else { return }
+        self.uiImage = uiImage
+        self.profileImage = Image(uiImage: uiImage)
+    }
+    
+    @MainActor
+    func loadCoverImage(fromItem item: PhotosPickerItem?) async throws {
+        guard let item = item else { return }
+        guard let data = try? await item.loadTransferable(type: Data.self) else { print("DATA ERROR"); return }
+        guard let uiImage = UIImage(data: data) else { return }
+        self.uiImage = uiImage
+        self.coverImage = Image(uiImage: uiImage)
     }
 }
  
