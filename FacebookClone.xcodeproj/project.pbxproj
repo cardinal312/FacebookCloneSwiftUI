@@ -18,6 +18,8 @@
 		FA205DD92B8AE9B9003CB218 /* CustomTextFieldViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA205DD82B8AE9B9003CB218 /* CustomTextFieldViewModifier.swift */; };
 		FA205DDB2B8AF797003CB218 /* AddNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA205DDA2B8AF797003CB218 /* AddNameView.swift */; };
 		FA205DDD2B8AFB56003CB218 /* RegistationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA205DDC2B8AFB56003CB218 /* RegistationViewModel.swift */; };
+		FA205DDF2B8B286E003CB218 /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA205DDE2B8B286E003CB218 /* GenderView.swift */; };
+		FA205DE12B8B3750003CB218 /* AgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA205DE02B8B3750003CB218 /* AgeView.swift */; };
 		FA20E6752B7E7016003670A8 /* MyStoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20E6742B7E7016003670A8 /* MyStoryCardView.swift */; };
 		FA20E6772B7E714F003670A8 /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20E6762B7E714F003670A8 /* DividerView.swift */; };
 		FA20E67A2B7E76BA003670A8 /* StoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20E6792B7E76BA003670A8 /* StoryCardView.swift */; };
@@ -67,6 +69,8 @@
 		FA205DD82B8AE9B9003CB218 /* CustomTextFieldViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldViewModifier.swift; sourceTree = "<group>"; };
 		FA205DDA2B8AF797003CB218 /* AddNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNameView.swift; sourceTree = "<group>"; };
 		FA205DDC2B8AFB56003CB218 /* RegistationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistationViewModel.swift; sourceTree = "<group>"; };
+		FA205DDE2B8B286E003CB218 /* GenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
+		FA205DE02B8B3750003CB218 /* AgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeView.swift; sourceTree = "<group>"; };
 		FA20E6742B7E7016003670A8 /* MyStoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStoryCardView.swift; sourceTree = "<group>"; };
 		FA20E6762B7E714F003670A8 /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
 		FA20E6792B7E76BA003670A8 /* StoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCardView.swift; sourceTree = "<group>"; };
@@ -154,6 +158,8 @@
 			children = (
 				FA205DD22B8AE2CE003CB218 /* LoginView.swift */,
 				FA205DDA2B8AF797003CB218 /* AddNameView.swift */,
+				FA205DDE2B8B286E003CB218 /* GenderView.swift */,
+				FA205DE02B8B3750003CB218 /* AgeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -507,6 +513,7 @@
 				FAA1181A2B82402B00603175 /* ProfileOptionsView.swift in Sources */,
 				FA1622532B7D1DCA00CEB6D2 /* FeedView.swift in Sources */,
 				FA20E67E2B7E7D3F003670A8 /* StoryFeedView.swift in Sources */,
+				FA205DE12B8B3750003CB218 /* AgeView.swift in Sources */,
 				FA1622582B7D293E00CEB6D2 /* HeaderView.swift in Sources */,
 				FA8884B92B8989C600341890 /* VideoView.swift in Sources */,
 				FA55AA562B7BC5A600BCBB93 /* ContentView.swift in Sources */,
@@ -533,6 +540,7 @@
 				FA8884C42B89A06700341890 /* Item.swift in Sources */,
 				FA205DDD2B8AFB56003CB218 /* RegistationViewModel.swift in Sources */,
 				FA4F16F22B84FA6C008EC0A2 /* CreatePostView.swift in Sources */,
+				FA205DDF2B8B286E003CB218 /* GenderView.swift in Sources */,
 				FA2EB1FE2B81151200517DBB /* PostView.swift in Sources */,
 				FA8209C42B87AD0400EB175C /* MarketPlaceView.swift in Sources */,
 				FA8209C62B87B12800EB175C /* MarketPlaceButton.swift in Sources */,

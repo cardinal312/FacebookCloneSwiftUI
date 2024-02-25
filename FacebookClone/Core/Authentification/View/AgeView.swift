@@ -1,5 +1,5 @@
 //
-//  AddNameView.swift
+//  AgeView.swift
 //  FacebookClone
 //
 //  Created by Macbook on 25/2/24.
@@ -7,38 +7,44 @@
 
 import SwiftUI
 
-struct AddNameView: View {
+struct AgeView: View {
     @Environment(\.dismiss) var dissmiss
-    @StateObject private var viewModel = RegistationViewModel()
+    @StateObject private var viewModel: RegistationViewModel
+    
+    init(viewModel: RegistationViewModel) {
+        self._viewModel = StateObject(wrappedValue: viewModel)
+    }
     
     var body: some View {
         GeometryReader { proxy in
             VStack(alignment: .leading, spacing: 20) {
-                Text("What's your name?")
+                Text("How old are you?")
                     .font(.title2)
                     .fontWeight(.semibold)
                     .padding(.top)
-                Text("Enter the name you use in real life")
-                    .font(.footnote)
-                HStack {
-                    TextField("First name", text: $viewModel.firstName)
-                        .customTextFieldViewModifier(width: (proxy.size.width / 2) + 5)
-                    Spacer()
-                    TextField("Surename", text: $viewModel.familyName)
-                        .customTextFieldViewModifier(width: (proxy.size.width / 2) + 5)
-                }
-                NavigationLink {
-                    AgeView(viewModel: viewModel)
-                        .navigationBarBackButtonHidden()
-                } label: {
-                    Text("Next")
+                    TextField("Age", text: $viewModel.age)
+                        .customTextFieldViewModifier(width: proxy.size.width + 5)
+                VStack {
+                    NavigationLink {
+                        GenderView(viewModel: viewModel)
+                            .navigationBarBackButtonHidden()
+                    } label: {
+                        Text("Next")
+                            .font(.subheadline)
+                            .fontWeight(.semibold)
+                            .frame(width: proxy.size.width - 25, height: 44)
+                            .background(.blue)
+                            .foregroundStyle(.white)
+                            .clipShape(RoundedRectangle(cornerRadius: 30))
+                            .padding(.vertical)
+                    }
+                    Text("Use date of birth")
                         .font(.subheadline)
                         .fontWeight(.semibold)
                         .frame(width: proxy.size.width - 25, height: 44)
-                        .background(.blue)
-                        .foregroundStyle(.white)
+                        .background(.white)
+                        .foregroundStyle(Color(.darkGray))
                         .clipShape(RoundedRectangle(cornerRadius: 30))
-                        .padding(.vertical)
                 }
                 Spacer()
                 HStack {
@@ -68,8 +74,9 @@ struct AddNameView: View {
     }
 }
 
-struct AddNameView_Previews: PreviewProvider {
+
+struct AgeView_Previews: PreviewProvider {
     static var previews: some View {
-        AddNameView()
+        AgeView(viewModel: RegistationViewModel())
     }
 }
