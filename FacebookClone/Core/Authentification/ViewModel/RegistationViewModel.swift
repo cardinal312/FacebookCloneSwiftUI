@@ -13,6 +13,8 @@ final class RegistationViewModel: ObservableObject {
     @Published var gender: String = ""
     @Published var genderChoices: [String] = ["Female", "Male", "More options"]
     @Published var age: String = ""
+    @Published var email: String = ""
+    @Published var password: String = ""
 }
 
 

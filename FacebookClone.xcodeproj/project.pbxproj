@@ -20,6 +20,9 @@
 		FA205DDD2B8AFB56003CB218 /* RegistationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA205DDC2B8AFB56003CB218 /* RegistationViewModel.swift */; };
 		FA205DDF2B8B286E003CB218 /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA205DDE2B8B286E003CB218 /* GenderView.swift */; };
 		FA205DE12B8B3750003CB218 /* AgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA205DE02B8B3750003CB218 /* AgeView.swift */; };
+		FA205DE32B8B449F003CB218 /* AgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA205DE22B8B449F003CB218 /* AgreementView.swift */; };
+		FA205DE52B8B5255003CB218 /* AddEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA205DE42B8B5255003CB218 /* AddEmailView.swift */; };
+		FA205DE72B8B56A1003CB218 /* AddPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA205DE62B8B56A1003CB218 /* AddPasswordView.swift */; };
 		FA20E6752B7E7016003670A8 /* MyStoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20E6742B7E7016003670A8 /* MyStoryCardView.swift */; };
 		FA20E6772B7E714F003670A8 /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20E6762B7E714F003670A8 /* DividerView.swift */; };
 		FA20E67A2B7E76BA003670A8 /* StoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20E6792B7E76BA003670A8 /* StoryCardView.swift */; };
@@ -71,6 +74,9 @@
 		FA205DDC2B8AFB56003CB218 /* RegistationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistationViewModel.swift; sourceTree = "<group>"; };
 		FA205DDE2B8B286E003CB218 /* GenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
 		FA205DE02B8B3750003CB218 /* AgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeView.swift; sourceTree = "<group>"; };
+		FA205DE22B8B449F003CB218 /* AgreementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementView.swift; sourceTree = "<group>"; };
+		FA205DE42B8B5255003CB218 /* AddEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEmailView.swift; sourceTree = "<group>"; };
+		FA205DE62B8B56A1003CB218 /* AddPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPasswordView.swift; sourceTree = "<group>"; };
 		FA20E6742B7E7016003670A8 /* MyStoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStoryCardView.swift; sourceTree = "<group>"; };
 		FA20E6762B7E714F003670A8 /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
 		FA20E6792B7E76BA003670A8 /* StoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCardView.swift; sourceTree = "<group>"; };
@@ -160,6 +166,9 @@
 				FA205DDA2B8AF797003CB218 /* AddNameView.swift */,
 				FA205DDE2B8B286E003CB218 /* GenderView.swift */,
 				FA205DE02B8B3750003CB218 /* AgeView.swift */,
+				FA205DE22B8B449F003CB218 /* AgreementView.swift */,
+				FA205DE42B8B5255003CB218 /* AddEmailView.swift */,
+				FA205DE62B8B56A1003CB218 /* AddPasswordView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -512,8 +521,10 @@
 				FA3F19FC2B820EBE008E7426 /* CustomButton.swift in Sources */,
 				FAA1181A2B82402B00603175 /* ProfileOptionsView.swift in Sources */,
 				FA1622532B7D1DCA00CEB6D2 /* FeedView.swift in Sources */,
+				FA205DE52B8B5255003CB218 /* AddEmailView.swift in Sources */,
 				FA20E67E2B7E7D3F003670A8 /* StoryFeedView.swift in Sources */,
 				FA205DE12B8B3750003CB218 /* AgeView.swift in Sources */,
+				FA205DE32B8B449F003CB218 /* AgreementView.swift in Sources */,
 				FA1622582B7D293E00CEB6D2 /* HeaderView.swift in Sources */,
 				FA8884B92B8989C600341890 /* VideoView.swift in Sources */,
 				FA55AA562B7BC5A600BCBB93 /* ContentView.swift in Sources */,
@@ -529,6 +540,7 @@
 				FA8884C22B899F2200341890 /* Post.swift in Sources */,
 				FA8884BB2B898E0F00341890 /* VideoOptionViewModifier.swift in Sources */,
 				FA3414EC2B866866003C5177 /* TagView.swift in Sources */,
+				FA205DE72B8B56A1003CB218 /* AddPasswordView.swift in Sources */,
 				FAA1181E2B8255F600603175 /* ManageProfilePostsView.swift in Sources */,
 				FA3414EE2B866D19003C5177 /* FriendCell.swift in Sources */,
 				FA1FF1292B890F630068BF68 /* MenuHeaderView.swift in Sources */,

@@ -61,7 +61,8 @@ struct GenderView: View {
                 .background(.white)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 NavigationLink {
-                    Text("Email adress")
+                    AddEmailView(viewModel: viewModel)
+                        .navigationBarBackButtonHidden()
                 } label: {
                     Text("Next")
                         .font(.subheadline)
