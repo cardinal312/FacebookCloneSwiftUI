@@ -23,10 +23,10 @@ struct LoginView: View {
                         TextField("Mobile number or email adress", text: $viewModel.email)
                             .textInputAutocapitalization(.never)
                             .customTextFieldViewModifier(width: proxy.size.width)
-                        TextField("Password", text: $viewModel.password)
+                        SecureField("Password", text: $viewModel.password)
                             .customTextFieldViewModifier(width: proxy.size.width)
                         Button {
-                            
+                            print(#function)
                         } label: {
                             Text("Log In")
                                 .font(.headline)
@@ -43,18 +43,19 @@ struct LoginView: View {
                     HStack { Spacer() }
                     Spacer()
                     VStack(spacing: 24) {
-                        Button {
-                            
-                        } label: {
-                            Text("Create new account?")
-                                .font(.headline)
-                                .fontWeight(.semibold)
-                                .frame(width: proxy.size.width - 30, height: 44)
-                                .overlay {
-                                    RoundedRectangle(cornerRadius: 30)
-                                        .stroke(.blue, lineWidth: 1)
-                                }
-                        }
+                            NavigationLink {
+                                AddNameView()
+                                    .navigationBarBackButtonHidden()
+                            } label: {
+                                Text("Create new account?")
+                                    .font(.headline)
+                                    .fontWeight(.semibold)
+                                    .frame(width: proxy.size.width - 30, height: 44)
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: 30)
+                                            .stroke(.blue, lineWidth: 1)
+                                    }
+                            }
                         HStack(spacing: 5) {
                             Image("meta_icon")
                                 .resizable()

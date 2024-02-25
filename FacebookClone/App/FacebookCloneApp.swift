@@ -11,7 +11,8 @@ import SwiftUI
 struct FacebookCloneApp: App {
     var body: some Scene {
         WindowGroup {
-            MainTabView()
+            //MainTabView()
+            LoginView()
         }
     }
 }
