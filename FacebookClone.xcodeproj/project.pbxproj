@@ -13,6 +13,9 @@
 		FA1FF1272B8909780068BF68 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1FF1262B8909780068BF68 /* MenuView.swift */; };
 		FA1FF1292B890F630068BF68 /* MenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1FF1282B890F630068BF68 /* MenuHeaderView.swift */; };
 		FA1FF12B2B891B680068BF68 /* ShortCutsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1FF12A2B891B680068BF68 /* ShortCutsView.swift */; };
+		FA205DD32B8AE2CE003CB218 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA205DD22B8AE2CE003CB218 /* LoginView.swift */; };
+		FA205DD72B8AE765003CB218 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA205DD62B8AE765003CB218 /* LoginViewModel.swift */; };
+		FA205DD92B8AE9B9003CB218 /* CustomTextFieldViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA205DD82B8AE9B9003CB218 /* CustomTextFieldViewModifier.swift */; };
 		FA20E6752B7E7016003670A8 /* MyStoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20E6742B7E7016003670A8 /* MyStoryCardView.swift */; };
 		FA20E6772B7E714F003670A8 /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20E6762B7E714F003670A8 /* DividerView.swift */; };
 		FA20E67A2B7E76BA003670A8 /* StoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20E6792B7E76BA003670A8 /* StoryCardView.swift */; };
@@ -57,6 +60,9 @@
 		FA1FF1262B8909780068BF68 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		FA1FF1282B890F630068BF68 /* MenuHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHeaderView.swift; sourceTree = "<group>"; };
 		FA1FF12A2B891B680068BF68 /* ShortCutsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortCutsView.swift; sourceTree = "<group>"; };
+		FA205DD22B8AE2CE003CB218 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		FA205DD62B8AE765003CB218 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		FA205DD82B8AE9B9003CB218 /* CustomTextFieldViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldViewModifier.swift; sourceTree = "<group>"; };
 		FA20E6742B7E7016003670A8 /* MyStoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStoryCardView.swift; sourceTree = "<group>"; };
 		FA20E6762B7E714F003670A8 /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
 		FA20E6792B7E76BA003670A8 /* StoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCardView.swift; sourceTree = "<group>"; };
@@ -126,6 +132,22 @@
 				FA1FF1282B890F630068BF68 /* MenuHeaderView.swift */,
 				FA1FF12A2B891B680068BF68 /* ShortCutsView.swift */,
 				FA8884B22B89818100341890 /* MenuCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FA205DD42B8AE4A4003CB218 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FA205DD62B8AE765003CB218 /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FA205DD52B8AE4AD003CB218 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA205DD22B8AE2CE003CB218 /* LoginView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -321,6 +343,8 @@
 		FA55AA6F2B7BC65700BCBB93 /* Authentification */ = {
 			isa = PBXGroup;
 			children = (
+				FA205DD42B8AE4A4003CB218 /* ViewModel */,
+				FA205DD52B8AE4AD003CB218 /* View */,
 			);
 			path = Authentification;
 			sourceTree = "<group>";
@@ -347,6 +371,7 @@
 			children = (
 				FA8884B52B8983E400341890 /* CustomButtonModifier.swift */,
 				FA8884BA2B898E0F00341890 /* VideoOptionViewModifier.swift */,
+				FA205DD82B8AE9B9003CB218 /* CustomTextFieldViewModifier.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -467,6 +492,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA1FF12B2B891B680068BF68 /* ShortCutsView.swift in Sources */,
+				FA205DD72B8AE765003CB218 /* LoginViewModel.swift in Sources */,
 				FA8884B32B89818100341890 /* MenuCell.swift in Sources */,
 				FA3414EA2B8665F0003C5177 /* FriendsView.swift in Sources */,
 				FA8884BE2B8995BA00341890 /* VideoOptionsView.swift in Sources */,
@@ -483,6 +509,7 @@
 				FA20E6752B7E7016003670A8 /* MyStoryCardView.swift in Sources */,
 				FA20E67A2B7E76BA003670A8 /* StoryCardView.swift in Sources */,
 				FA1622562B7D266000CEB6D2 /* ProfileView.swift in Sources */,
+				FA205DD92B8AE9B9003CB218 /* CustomTextFieldViewModifier.swift in Sources */,
 				FAA1181C2B8246A400603175 /* ProfileFriendsView.swift in Sources */,
 				FA55AA542B7BC5A600BCBB93 /* FacebookCloneApp.swift in Sources */,
 				FA8884C22B899F2200341890 /* Post.swift in Sources */,
@@ -504,6 +531,7 @@
 				FA4F16F42B8500DF008EC0A2 /* ChoiceView.swift in Sources */,
 				FA55AA722B7BC7F700BCBB93 /* MainTabView.swift in Sources */,
 				FAA118202B82592F00603175 /* ReelReusableView.swift in Sources */,
+				FA205DD32B8AE2CE003CB218 /* LoginView.swift in Sources */,
 				FA8884CE2B89E43A00341890 /* FeedViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
