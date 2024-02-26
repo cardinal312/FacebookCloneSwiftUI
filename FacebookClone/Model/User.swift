@@ -16,7 +16,7 @@ struct User: Identifiable, Hashable, Codable {
     var profileImageName: String?
     var coverImageName: String?
     var age: Int
-    let gerder: String
+    let gender: String
     var friendsIds: [String]
     var friendsRequestsIDs: [String]
     var isCurrentUser: Bool

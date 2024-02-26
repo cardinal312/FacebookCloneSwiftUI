@@ -9,6 +9,7 @@ import SwiftUI
 import PhotosUI
 
 struct ProfileHeaderView: View {
+    
     private let width: CGFloat
     @StateObject private var viewModel: FeedViewModel
     @State private var showProfileImagePicker: Bool = false
@@ -60,7 +61,6 @@ struct ProfileHeaderView: View {
                     CustomButton(imageName: "plus", title: "Add to story", backgroundColor: .blue, forgroundColor: .white)
                     CustomButton(imageName: "pencil", title: "Edit profile", backgroundColor: Color(.systemGray5), forgroundColor: Color(.darkGray))
                     CustomButton(imageName: "ellipsis", title: "", backgroundColor: Color(.systemGray5), forgroundColor: Color(.darkGray))
-                    
                 }
                 HStack { Spacer() }
             }

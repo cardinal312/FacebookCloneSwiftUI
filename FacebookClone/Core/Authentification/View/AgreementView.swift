@@ -9,6 +9,11 @@ import SwiftUI
 
 struct AgreementView: View {
     @Environment(\.dismiss) private var dismiss
+    @StateObject private var viewModel: RegistationViewModel
+    
+    init(viewModel: RegistationViewModel) {
+        self._viewModel = StateObject(wrappedValue: viewModel)
+    }
     
     var body: some View {
         GeometryReader { proxy in
@@ -45,7 +50,7 @@ struct AgreementView: View {
             Text("describes the way we can use the information we callect when you create an account. For example, we use this information to provide, personalise and improve our products, including ads.")
                 .font(.caption)
             Button {
-                
+                Task { try await viewModel.createUser() }
             } label: {
                 Text("I Agree")
                     .font(.subheadline)
@@ -83,6 +88,6 @@ struct AgreementView: View {
 
 struct AgreementView_Previews: PreviewProvider {
     static var previews: some View {
-        AgreementView()
+        AgreementView(viewModel: RegistationViewModel())
     }
 }

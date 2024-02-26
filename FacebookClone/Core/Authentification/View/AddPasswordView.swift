@@ -26,7 +26,7 @@ struct AddPasswordView: View {
                 SecureField("Password", text: $viewModel.password)
                     .customTextFieldViewModifier(width: proxy.size.width + 5)
                 NavigationLink {
-                    AgreementView()
+                    AgreementView(viewModel: viewModel)
                         .navigationBarBackButtonHidden()
                 } label: {
                     Text("Next")

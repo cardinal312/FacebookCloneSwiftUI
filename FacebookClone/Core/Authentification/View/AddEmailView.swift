@@ -27,6 +27,7 @@ struct AddEmailView: View {
                     .fontWeight(.semibold)
                 TextField("Email adress", text: $viewModel.email)
                         .customTextFieldViewModifier(width: proxy.size.width + 5)
+                        .textInputAutocapitalization(.never)
                         .textContentType(.emailAddress)
                 Text("You'll recieve email from us and can opt out anytime ")
                     .font(.caption) +
