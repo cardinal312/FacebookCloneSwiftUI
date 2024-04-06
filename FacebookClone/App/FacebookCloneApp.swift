@@ -23,8 +23,7 @@ struct FacebookCloneApp: App {
     
     var body: some Scene {
         WindowGroup {
-            //MainTabView()
-            LoginView()
+            RootView()
         }
     }
 }

@@ -21,8 +21,8 @@ struct MyStoryCardView: View {
             Image(viewModel.users[0].profileImageName ?? "")
                 .resizable()
                 .scaledToFill()
-                .frame(width: 100, height: 100)
-                .clipShape(RoundedRectangle(cornerRadius: 12))
+                .frame(width: 100, height: 110)
+                .clipShape(UnevenRoundedRectangle(cornerRadii: .init(topLeading: 15, topTrailing: 15)))
             VStack(spacing: 5) {
                 Spacer()
                     .frame(height: 90)

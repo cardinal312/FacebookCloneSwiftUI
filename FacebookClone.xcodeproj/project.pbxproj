@@ -29,6 +29,9 @@
 		FA20E67C2B7E7A4E003670A8 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20E67B2B7E7A4E003670A8 /* Helpers.swift */; };
 		FA20E67E2B7E7D3F003670A8 /* StoryFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20E67D2B7E7D3F003670A8 /* StoryFeedView.swift */; };
 		FA2EB1FE2B81151200517DBB /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2EB1FD2B81151200517DBB /* PostView.swift */; };
+		FA3019632BC168F400EB6549 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3019622BC168F400EB6549 /* RootViewModel.swift */; };
+		FA3019652BC169D700EB6549 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3019642BC169D700EB6549 /* RootView.swift */; };
+		FA3019672BC16EC500EB6549 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3019662BC16EC500EB6549 /* UserService.swift */; };
 		FA3414EA2B8665F0003C5177 /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3414E92B8665F0003C5177 /* FriendsView.swift */; };
 		FA3414EC2B866866003C5177 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3414EB2B866866003C5177 /* TagView.swift */; };
 		FA3414EE2B866D19003C5177 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3414ED2B866D19003C5177 /* FriendCell.swift */; };
@@ -89,6 +92,9 @@
 		FA20E67B2B7E7A4E003670A8 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		FA20E67D2B7E7D3F003670A8 /* StoryFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryFeedView.swift; sourceTree = "<group>"; };
 		FA2EB1FD2B81151200517DBB /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		FA3019622BC168F400EB6549 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
+		FA3019642BC169D700EB6549 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		FA3019662BC16EC500EB6549 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		FA3414E92B8665F0003C5177 /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
 		FA3414EB2B866866003C5177 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		FA3414ED2B866D19003C5177 /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
@@ -198,6 +204,22 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		FA3019602BC1688800EB6549 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA3019642BC169D700EB6549 /* RootView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FA3019612BC168A900EB6549 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FA3019622BC168F400EB6549 /* RootViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		FA3414E82B8665D0003C5177 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				FA8D42262B8CED8D0066D1D4 /* AuthService.swift */,
+				FA3019662BC16EC500EB6549 /* UserService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -311,6 +334,8 @@
 		FA55AA672B7BC63C00BCBB93 /* Root */ = {
 			isa = PBXGroup;
 			children = (
+				FA3019612BC168A900EB6549 /* ViewModel */,
+				FA3019602BC1688800EB6549 /* View */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -576,8 +601,10 @@
 				FA205DE72B8B56A1003CB218 /* AddPasswordView.swift in Sources */,
 				FAA1181E2B8255F600603175 /* ManageProfilePostsView.swift in Sources */,
 				FA3414EE2B866D19003C5177 /* FriendCell.swift in Sources */,
+				FA3019672BC16EC500EB6549 /* UserService.swift in Sources */,
 				FA1FF1292B890F630068BF68 /* MenuHeaderView.swift in Sources */,
 				FA8884C02B899D6100341890 /* User.swift in Sources */,
+				FA3019632BC168F400EB6549 /* RootViewModel.swift in Sources */,
 				FA20E6772B7E714F003670A8 /* DividerView.swift in Sources */,
 				FA3F19FE2B820F3A008E7426 /* ProfileHeaderView.swift in Sources */,
 				FA8884CA2B89A73B00341890 /* FriendViewModel.swift in Sources */,
@@ -591,6 +618,7 @@
 				FA8209C62B87B12800EB175C /* MarketPlaceButton.swift in Sources */,
 				FA4F16F42B8500DF008EC0A2 /* ChoiceView.swift in Sources */,
 				FA55AA722B7BC7F700BCBB93 /* MainTabView.swift in Sources */,
+				FA3019652BC169D700EB6549 /* RootView.swift in Sources */,
 				FAA118202B82592F00603175 /* ReelReusableView.swift in Sources */,
 				FA205DD32B8AE2CE003CB218 /* LoginView.swift in Sources */,
 				FA8884CE2B89E43A00341890 /* FeedViewModel.swift in Sources */,

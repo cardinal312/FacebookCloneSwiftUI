@@ -26,7 +26,9 @@ struct LoginView: View {
                         SecureField("Password", text: $viewModel.password)
                             .customTextFieldViewModifier(width: proxy.size.width)
                         Button {
-                            print(#function)
+                            Task {
+                                try await viewModel.login()
+                            }
                         } label: {
                             Text("Log In")
                                 .font(.headline)

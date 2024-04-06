@@ -32,8 +32,12 @@ struct MenuView: View {
                 }
                 .alert("Logout of your account?", isPresented: $showLogoutAlert, actions: {
                     HStack {
-                        Button("Logout") {}
-                        Button("Cancel") {}
+                        Button("Logout") {
+                            AuthService.shared.signOut()
+                        }
+                        Button("Cancel", role: .cancel) {
+                            
+                        }
                     }
                 })
                 .background(Color(.systemGray6))
