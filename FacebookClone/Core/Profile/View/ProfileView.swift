@@ -31,7 +31,7 @@ struct ProfileView: View {
                     }
                 }
                 .scrollIndicators(.hidden)
-                .navigationTitle("\(viewModel.users[0].firstName) \(viewModel.users[0].familyName)")
+                .navigationTitle("\(viewModel.currenUser?.firstName ?? "") \(viewModel.currenUser?.familyName ?? "")")
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button(action: {

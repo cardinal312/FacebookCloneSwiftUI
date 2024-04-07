@@ -31,6 +31,7 @@ final class AuthService: ObservableObject {
             let result = try await Auth.auth().createUser(withEmail: email, password: password)
             self.userSession = result.user
             try await uploadUserData(firstName: firstName, familyName: familyName, email: email, age: age, gender: gender, id: result.user.uid)
+            try await UserService.shared.fetchCurrentUser()
         } catch {
             print("Failed to create user \(NetworkError.cantCreateUser) - \(error.localizedDescription)")
         }

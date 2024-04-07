@@ -57,7 +57,10 @@ final class FeedViewModel: ObservableObject {
     }
     
     private func setupFriends() {
-        self.friends = users.filter { self.users[0].friendsIds.contains($0.id)}
+        UserService.shared.$friends.sink { [weak self] friends in
+            self?.friends = friends ?? []
+        }
+        .store(in: &cancellables)
     }
     
     private func setupPosts() {
@@ -93,12 +96,14 @@ final class FeedViewModel: ObservableObject {
         guard let image = self.uiImage else { return }
         guard let imageUrl = try? await ImageUploader.uploadImage(image) else { return }
         try await UserService.shared.uploadProfileImage(withImageUrl: imageUrl)
+        self.currenUser?.profileImageName = imageUrl
     }
     
     private func updateCoverImageName() async throws {
         guard let image = self.uiImage else { return }
         guard let imageUrl = try? await ImageUploader.uploadCoverImage(image) else { return }
         try await UserService.shared.uploadCoverImage(withImageUrl: imageUrl)
+        self.currenUser?.coverImageName = imageUrl
     }
 }
  

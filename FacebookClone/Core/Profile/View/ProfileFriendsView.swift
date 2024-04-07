@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ProfileFriendsView: View {
     
@@ -44,11 +45,18 @@ struct ProfileFriendsView: View {
             LazyVGrid(columns: gridItems) {
                 ForEach(viewModel.friends) { friend in
                     VStack {
-                        Image(friend.profileImageName ?? "")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: (width / 3) - 20, height: (width / 3) - 20 )
-                            .clipShape(RoundedRectangle(cornerRadius: 8))
+                        ZStack() {
+                            Image(.noProfile)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: (width / 3) - 20, height: (width / 3) - 20 )
+                                .clipShape(RoundedRectangle(cornerRadius: 8))
+                            KFImage(URL(string: friend.profileImageName ?? ""))
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: (width / 3) - 20, height: (width / 3) - 20 )
+                                .clipShape(RoundedRectangle(cornerRadius: 8))
+                        }
                         Text("\(friend.firstName) \(friend.familyName)")
                             .font(.subheadline)
                             .fontWeight(.semibold)
