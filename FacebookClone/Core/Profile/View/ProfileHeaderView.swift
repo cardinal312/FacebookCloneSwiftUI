@@ -7,6 +7,7 @@
 
 import SwiftUI
 import PhotosUI
+import Kingfisher
 
 struct ProfileHeaderView: View {
     
@@ -25,10 +26,16 @@ struct ProfileHeaderView: View {
             Button {
                 showCoverImagePicker.toggle()
             } label: {
-                viewModel.coverImage
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: width, height: 250)
+                ZStack {
+                    Image(.noProfile)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: width, height: 250)
+                    KFImage(URL(string: viewModel.currenUser?.coverImageName ?? ""))
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: width, height: 250)
+                }
             }
             Color.white
                 .frame(height: 100)
@@ -38,18 +45,30 @@ struct ProfileHeaderView: View {
                 Button {
                     showProfileImagePicker.toggle()
                 } label: {
-                    viewModel.profileImage
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 120, height: 120)
-                        .clipShape(Circle())
-                        .overlay {
-                            Circle()
-                                .stroke(Color(.systemGray6) ,lineWidth: 3)
-                        }
-                        .padding(.top, 170)
+                    ZStack {
+                        Image(.noProfile)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 120, height: 120)
+                            .clipShape(Circle())
+                            .overlay {
+                                Circle()
+                                    .stroke(Color(.systemGray6) ,lineWidth: 3)
+                            }
+                            .padding(.top, 170)
+                        KFImage(URL(string: viewModel.currenUser?.profileImageName ?? ""))
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 120, height: 120)
+                            .clipShape(Circle())
+                            .overlay {
+                                Circle()
+                                    .stroke(Color(.systemGray6) ,lineWidth: 3)
+                            }
+                            .padding(.top, 170)
+                    }
                 }
-                Text("\(viewModel.users[0].firstName) \(viewModel.users[0].familyName)")
+                Text("\(viewModel.currenUser?.firstName ?? "") \(viewModel.currenUser?.familyName ?? "")")
                     .font(.title)
                     .fontWeight(.bold)
                 Text("\(viewModel.friends.count) ")

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import PhotosUI
+import Combine
 
 final class FeedViewModel: ObservableObject {
     
@@ -41,9 +42,16 @@ final class FeedViewModel: ObservableObject {
     }
     @Published var profileImage: Image = Image("no_profile")
     @Published var coverImage: Image = Image("no_profile")
+    @Published var currenUser: User?
+    private var cancellables = Set<AnyCancellable>()
     private var uiImage: UIImage?
     
     init() {
+        UserService.shared.$currentUser
+            .sink { [weak self] currentUser in
+                self?.currenUser = currentUser
+            }
+            .store(in: &cancellables)
         setupFriends()
         setupPosts()
     }

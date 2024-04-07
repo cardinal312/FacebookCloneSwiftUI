@@ -10,7 +10,10 @@ import Firebase
 
 final class UserService {
     static let shared = UserService()
-    private init() {}
+    
+    private init() {
+        Task { try await fetchCurrentUser() }
+    }
     
     @Published var currentUser: User?
     
