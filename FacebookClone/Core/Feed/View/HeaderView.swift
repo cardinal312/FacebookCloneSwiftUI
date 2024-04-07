@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct HeaderView: View {
     @State private var showCreatePost: Bool = false
@@ -21,11 +22,18 @@ struct HeaderView: View {
                 ProfileView(viewModel: viewModel)
                     .navigationBarBackButtonHidden()
             } label: {
-                Image(viewModel.users[0].profileImageName ?? "")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 40, height: 40)
-                    .clipShape(Circle())
+                ZStack {
+                    Image(.noProfile)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 40, height: 40)
+                        .clipShape(Circle())
+                    KFImage(URL(string: viewModel.currenUser?.profileImageName ?? ""))
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 40, height: 40)
+                        .clipShape(Circle())
+                }
                 Button(action: {
                     showCreatePost.toggle()
                 }, label: {

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct FriendCell: View {
     private var viewModel: FriendViewModel
@@ -18,11 +19,18 @@ struct FriendCell: View {
     
     var body: some View {
         HStack(alignment: .top) {
-            Image(viewModel.friendsRequests[index].profileImageName ?? "")
-                .resizable()
-                .scaledToFill()
-                .frame(width: 70, height: 70)
-                .clipShape(Circle())
+            ZStack {
+                Image(.noProfile)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 70, height: 70)
+                    .clipShape(Circle())
+                KFImage(URL(string: viewModel.friendsRequests[index].profileImageName ?? ""))
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 70, height: 70)
+                    .clipShape(Circle())
+            }
             VStack(alignment: .leading) {
                 Text("\(viewModel.friendsRequests[index].firstName) \(viewModel.friendsRequests[index].familyName)")
                     .font(.headline)
