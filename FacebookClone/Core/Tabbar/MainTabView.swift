@@ -39,7 +39,7 @@ struct MainTabView: View {
             MarketPlaceView()
                 .tabItem {
                     VStack {
-                        Image("marketplaceIcon")
+                        Image(.marketplaceIcon)
                             .environment(\.symbolVariants, tabSelection == 3 ? .fill : .none)
                     }
                 }

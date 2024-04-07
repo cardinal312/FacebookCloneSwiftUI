@@ -68,6 +68,7 @@ final class FeedViewModel: ObservableObject {
         guard let uiImage = UIImage(data: data) else { return }
         self.uiImage = uiImage
         self.profileImage = Image(uiImage: uiImage)
+        try await updateProfileImageName()
     }
     
     @MainActor
@@ -77,6 +78,19 @@ final class FeedViewModel: ObservableObject {
         guard let uiImage = UIImage(data: data) else { return }
         self.uiImage = uiImage
         self.coverImage = Image(uiImage: uiImage)
+        try await updateCoverImageName()
+    }
+    
+    private func updateProfileImageName() async throws {
+        guard let image = self.uiImage else { return }
+        guard let imageUrl = try? await ImageUploader.uploadImage(image) else { return }
+        try await UserService.shared.uploadProfileImage(withImageUrl: imageUrl)
+    }
+    
+    private func updateCoverImageName() async throws {
+        guard let image = self.uiImage else { return }
+        guard let imageUrl = try? await ImageUploader.uploadCoverImage(image) else { return }
+        try await UserService.shared.uploadCoverImage(withImageUrl: imageUrl)
     }
 }
  

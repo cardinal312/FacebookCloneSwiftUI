@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA11A7602BC2690400B4A84C /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA11A75F2BC2690400B4A84C /* ImageUploader.swift */; };
 		FA1622532B7D1DCA00CEB6D2 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1622522B7D1DCA00CEB6D2 /* FeedView.swift */; };
 		FA1622562B7D266000CEB6D2 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1622552B7D266000CEB6D2 /* ProfileView.swift */; };
 		FA1622582B7D293E00CEB6D2 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1622572B7D293E00CEB6D2 /* HeaderView.swift */; };
@@ -70,6 +71,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA11A75F2BC2690400B4A84C /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		FA1622522B7D1DCA00CEB6D2 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		FA1622552B7D266000CEB6D2 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		FA1622572B7D293E00CEB6D2 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 			children = (
 				FA8D42262B8CED8D0066D1D4 /* AuthService.swift */,
 				FA3019662BC16EC500EB6549 /* UserService.swift */,
+				FA11A75F2BC2690400B4A84C /* ImageUploader.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -592,6 +595,7 @@
 				FA20E6752B7E7016003670A8 /* MyStoryCardView.swift in Sources */,
 				FA20E67A2B7E76BA003670A8 /* StoryCardView.swift in Sources */,
 				FA1622562B7D266000CEB6D2 /* ProfileView.swift in Sources */,
+				FA11A7602BC2690400B4A84C /* ImageUploader.swift in Sources */,
 				FA205DD92B8AE9B9003CB218 /* CustomTextFieldViewModifier.swift in Sources */,
 				FAA1181C2B8246A400603175 /* ProfileFriendsView.swift in Sources */,
 				FA55AA542B7BC5A600BCBB93 /* FacebookCloneApp.swift in Sources */,
