@@ -61,7 +61,7 @@ struct HeaderView: View {
             .padding(.top, 30)
             .padding(.bottom)
             .fullScreenCover(isPresented: $showCreatePost, content: {
-                CreatePostView()
+                CreatePostView(viewModel: viewModel)
             })
         }
     }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Firebase
 
 struct Post: Identifiable, Hashable, Codable {
     
@@ -16,7 +17,7 @@ struct Post: Identifiable, Hashable, Codable {
     var postShares: Int
     var postUrl: String
     var isVideo: Bool
-   // let timesTamp: Times need firebase
+    let timesTamp: Timestamp //Times need firebase
     var user: User?
     
 }

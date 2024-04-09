@@ -6,97 +6,130 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct CreatePostView: View {
     @Environment(\.dismiss) private var dissmis
+    @StateObject private var viewModel: FeedViewModel
     
-    @State var mindText: String = ""
+    init(viewModel: FeedViewModel) {
+        self._viewModel = StateObject(wrappedValue: viewModel)
+    }
+    
     var body: some View {
         NavigationStack {
-            VStack(alignment: .leading) {
-                Divider()
-                HStack(alignment: .top) {
-                    Image("me")
+            GeometryReader { proxy in
+                VStack(alignment: .leading) {
+                    Divider()
+                    HStack(alignment: .top) {
+                        ZStack {
+                            Image(.noProfile)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 45, height: 45)
+                                .clipShape(Circle())
+                                .padding(.leading, 7)
+                            KFImage(URL(string: viewModel.currenUser?.profileImageName ?? ""))
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 45, height: 45)
+                                .clipShape(Circle())
+                                .padding(.leading, 7)
+                        }
+                        VStack(alignment: .leading) {
+                            Text("\(viewModel.currenUser?.firstName ?? "") \(viewModel.currenUser?.familyName ?? "")")
+                            HStack {
+                                ChoiceView(iconName: "person.2.fill", iconText: "Friends")
+                                ChoiceView(iconName: "", iconText: "Album")
+                            }
+                            ChoiceView(iconName: "camera", iconText: "Off")
+                        }
+                        .padding(.horizontal, 12)
+                    }
+                    .padding()
+                    TextField("What's on your mind?", text: $viewModel.mindText, axis: .vertical)
+                        .padding(.leading, 30)
+                    viewModel.creaPostImage?
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 45, height: 45)
-                        .clipShape(Circle())
-                        .padding(.leading, 7)
-                    VStack(alignment: .leading) {
-                        Text("Cardinal 312")
-                        HStack {
-                            ChoiceView(iconName: "person.2.fill", iconText: "Friends")
-                            ChoiceView(iconName: "", iconText: "Album")
-                        }
-                        ChoiceView(iconName: "camera", iconText: "Off")
-                    }
-                    .padding(.horizontal, 12)
-                }
-                .padding()
-                TextField("What's on your mind?", text: $mindText, axis: .vertical)
-                    .padding(.leading, 30)
-                Spacer()
-                Divider()
-                HStack(spacing: 50) {
+                        .frame(width: proxy.size.width - 30, height: 300)
+                        .clipped()
+                        .padding(.leading)
+                        .padding(.top)
                     Spacer()
-                    Button(action: {}, label: {
-                        Image(systemName: "photo.fill.on.rectangle.fill")
-                            .foregroundStyle(.green)
-                    })
-                    Button(action: {}, label: {
-                        Image(systemName: "person.fill")
-                            .foregroundStyle(.blue)
-                    })
-                    Button(action: {}, label: {
-                        Image(systemName: "face.smiling")
-                            .foregroundStyle(.yellow)
-                    })
-                    Button(action: {}, label: {
-                        Image("pin")
-                            .resizable()
-                            .frame(width: 18, height: 18)
-                            .foregroundStyle(.red)
-                    })
-                    Button(action: {}, label: {
-                        Image(systemName: "ellipsis.circle.fill")
-                            .foregroundStyle(Color(.darkGray))
-                    })
-                    Spacer()
-                }
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    HStack {
+                    Divider()
+                    HStack(spacing: 50) {
+                        Spacer()
                         Button(action: {
-                            dissmis()
+                            viewModel.showCreatePostPicker.toggle()
                         }, label: {
-                            Image(systemName: "arrow.left")
-                                .foregroundStyle(.black)
-                                .fontWeight(.bold)
+                            Image(systemName: "photo.fill.on.rectangle.fill")
+                                .foregroundStyle(.green)
                         })
-                        Text("Create Post")
-                            .fontWeight(.semibold)
+                        Button(action: {}, label: {
+                            Image(systemName: "person.fill")
+                                .foregroundStyle(.blue)
+                        })
+                        Button(action: {}, label: {
+                            Image(systemName: "face.smiling")
+                                .foregroundStyle(.yellow)
+                        })
+                        Button(action: {}, label: {
+                            Image("pin")
+                                .resizable()
+                                .frame(width: 18, height: 18)
+                                .foregroundStyle(.red)
+                        })
+                        Button(action: {}, label: {
+                            Image(systemName: "ellipsis.circle.fill")
+                                .foregroundStyle(Color(.darkGray))
+                        })
+                        Spacer()
                     }
                 }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {}, label: {
-                        Text("Post")
-                            .font(.subheadline)
-                            .fontWeight(.semibold)
-                            .frame(width: 80, height: 35)
-                            .foregroundStyle(mindText.count == 0 ? Color(.darkGray) : .white)
-                            .background(mindText.count == 0 ? Color(.systemGray5) : .blue)
-                            .clipShape(RoundedRectangle(cornerRadius: 8))
-                    })
-                    .disabled(mindText.count == 0)
-                }
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        HStack {
+                            Button(action: {
+                                dissmis()
+                            }, label: {
+                                Image(systemName: "arrow.left")
+                                    .foregroundStyle(.black)
+                                    .fontWeight(.bold)
+                            })
+                            Text("Create Post")
+                                .fontWeight(.semibold)
+                        }
+                    }
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(action: {
+                            Task {
+                                try await viewModel.uploadPost()
+                                viewModel.mindText = ""
+                                viewModel.creaPostImage = nil
+                                viewModel.creaPostImage = nil
+                                dissmis()
+                            }
+                        }, label: {
+                            Text("Post")
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                                .frame(width: 80, height: 35)
+                                .foregroundStyle(viewModel.mindText.count == 0 ? Color(.darkGray) : .white)
+                                .background(viewModel.mindText.count == 0 ? Color(.systemGray5) : .blue)
+                                .clipShape(RoundedRectangle(cornerRadius: 8))
+                        })
+                        .disabled(viewModel.mindText.count == 0)
+                    }
             }
+            }
+            .photosPicker(isPresented: $viewModel.showCreatePostPicker, selection: $viewModel.selectedCreatePostImage)
         }
     }
 }
 
 struct CreatePostView_Previews: PreviewProvider {
     static var previews: some View {
-        CreatePostView()
+        CreatePostView(viewModel: FeedViewModel())
     }
 }

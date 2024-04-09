@@ -8,6 +8,7 @@
 import SwiftUI
 import PhotosUI
 import Combine
+import Firebase
 
 final class FeedViewModel: ObservableObject {
     
@@ -25,8 +26,8 @@ final class FeedViewModel: ObservableObject {
     @Published var friends: [User] = []
     
     @Published var posts: [Post] = [
-        .init(id: "0", userId: "3", postTitle: "Best team ever", postLikes: 2, postShares: 2, postUrl: "team", isVideo: false),
-        .init(id: "1", userId: "0", postTitle: "Just hurd work every day 😉", postLikes: 3, postShares: 4, postUrl: "cover_picture", isVideo: false)
+        .init(id: "0", userId: "3", postTitle: "Best team ever", postLikes: 2, postShares: 2, postUrl: "team", isVideo: false, timesTamp: Timestamp()),
+        .init(id: "1", userId: "0", postTitle: "Just hurd work every day 😉", postLikes: 3, postShares: 4, postUrl: "cover_picture", isVideo: false, timesTamp: Timestamp())
     ]
     
     @Published var myPostIndexes: [Int] = []
@@ -40,11 +41,19 @@ final class FeedViewModel: ObservableObject {
             Task { try await loadCoverImage(fromItem: selectedCoverImage)}
         }
     }
+    @Published var selectedCreatePostImage: PhotosPickerItem? {
+        didSet {
+            Task { try await loadCreatePostImage(fromItem: selectedCreatePostImage)}
+        }
+    }
     @Published var profileImage: Image = Image("no_profile")
     @Published var coverImage: Image = Image("no_profile")
+    @Published var creaPostImage: Image?
     @Published var currenUser: User?
     private var cancellables = Set<AnyCancellable>()
     private var uiImage: UIImage?
+    @Published var mindText: String = ""
+    @Published var showCreatePostPicker: Bool = false
     
     init() {
         UserService.shared.$currentUser
@@ -92,6 +101,15 @@ final class FeedViewModel: ObservableObject {
         try await updateCoverImageName()
     }
     
+    @MainActor
+    func loadCreatePostImage(fromItem item: PhotosPickerItem?) async throws {
+        guard let item = item else { return }
+        guard let data = try? await item.loadTransferable(type: Data.self) else { print("DATA ERROR"); return }
+        guard let uiImage = UIImage(data: data) else { return }
+        self.uiImage = uiImage
+        self.creaPostImage = Image(uiImage: uiImage)
+    }
+    
     private func updateProfileImageName() async throws {
         guard let image = self.uiImage else { return }
         guard let imageUrl = try? await ImageUploader.uploadImage(image) else { return }
@@ -104,6 +122,10 @@ final class FeedViewModel: ObservableObject {
         guard let imageUrl = try? await ImageUploader.uploadCoverImage(image) else { return }
         try await UserService.shared.uploadCoverImage(withImageUrl: imageUrl)
         self.currenUser?.coverImageName = imageUrl
+    }
+    
+    func uploadPost() async throws {
+        try await PostService.uploadPost(postTitle: mindText, uiImage: uiImage)
     }
 }
  
