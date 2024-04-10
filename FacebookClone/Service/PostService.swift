@@ -8,7 +8,8 @@
 import SwiftUI
 import Firebase
 
-struct PostService {
+@MainActor
+final class PostService {
     
     static func uploadPost(postTitle: String, uiImage: UIImage?) async throws {
         guard let uid = Auth.auth().currentUser?.uid else { return }
@@ -18,5 +19,18 @@ struct PostService {
         let post = Post(id: postRef.documentID, userId: uid, postTitle: postTitle, postLikes: 2, postShares: 3, postUrl: imageUrl, isVideo: false, timesTamp: Timestamp())
         guard let encodedPost = try? Firestore.Encoder().encode(post) else { return }
         try await postRef.setData(encodedPost)
+    }
+    
+    static func fetchFeedPost() async throws -> [Post] {
+        let snapshot = try await Firestore.firestore().collection("posts").getDocuments()//.order(by: "timestamp", descending: true).getDocuments()
+        var posts = try snapshot.documents.compactMap { try $0.data(as: Post.self) }
+        print("My post ->> \(posts)")
+        for i in 0..<posts.count {
+            let owneruid = posts[i].userId
+            let postUser = try await UserService.fetchUser(withUid: owneruid)
+            posts[i].user = postUser
+            print("My id ->> \(postUser)")
+        }
+        return posts
     }
 }

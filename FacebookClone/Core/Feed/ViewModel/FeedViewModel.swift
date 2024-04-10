@@ -10,27 +10,13 @@ import PhotosUI
 import Combine
 import Firebase
 
+@MainActor
 final class FeedViewModel: ObservableObject {
     
-    @Published var users: [User] = [
-        .init(id: "0", firstName: "Cardinal", familyName: "312", email: "manasov7777@gmail.com", profileImageName: "me",coverImageName: "bruce", age: 28, gender: "male", friendsIds: ["3", "5", "6", "7"], friendsRequestsIDs: ["1","2","4"], isCurrentUser: true),
-        .init(id: "1", firstName: "Dwight", familyName: "Schrute", email: "dwight.schrute@gmail.com", profileImageName: "dwight", age: 50, gender: "male", friendsIds: [], friendsRequestsIDs: [], isCurrentUser: false),
-        .init(id: "2", firstName: "Pam", familyName: "Beesly", email: "pam.beesly@gmail.com", profileImageName: "pam", age: 42, gender: "female", friendsIds: [], friendsRequestsIDs: [], isCurrentUser: false),
-        .init(id: "3", firstName: "Jim", familyName: "Halpert", email: "jim.halpert@gmail.com", profileImageName: "profilePic1", coverImageName: "story1", age: 40, gender: "male", friendsIds: ["0"], friendsRequestsIDs: [], isCurrentUser: false),
-        .init(id: "4", firstName: "Natasha", familyName: "Romanov", email: "natasha.romanov@gmail.com", profileImageName: "romanov", age: 38, gender: "female", friendsIds: [], friendsRequestsIDs: [], isCurrentUser: false),
-        .init(id: "5", firstName: "Elizabeth", familyName: "Olsen", email: "elizabeth.olsen@gmail.com", profileImageName: "profilePic2", coverImageName: "story2", age: 32, gender: "female", friendsIds: ["0"], friendsRequestsIDs: [], isCurrentUser: false),
-        .init(id: "6", firstName: "Thomas", familyName: "Shelby", email: "thomas.shelby@gmail.com", profileImageName: "profilePic3", coverImageName: "story3", age: 43, gender: "male", friendsIds: ["0"], friendsRequestsIDs: [], isCurrentUser: false),
-        .init(id: "7", firstName: "Nancy", familyName: "Wheeler", email: "nancy.wheeler@gmail.com", profileImageName: "profilePic4", coverImageName: "story4", age: 27, gender: "female", friendsIds: ["0"], friendsRequestsIDs: [], isCurrentUser: false)
-    ]
-    
     @Published var friends: [User] = []
-    
-    @Published var posts: [Post] = [
-        .init(id: "0", userId: "3", postTitle: "Best team ever", postLikes: 2, postShares: 2, postUrl: "team", isVideo: false, timesTamp: Timestamp()),
-        .init(id: "1", userId: "0", postTitle: "Just hurd work every day 😉", postLikes: 3, postShares: 4, postUrl: "cover_picture", isVideo: false, timesTamp: Timestamp())
-    ]
-    
+    @Published var posts: [Post] = []
     @Published var myPostIndexes: [Int] = []
+    
     @Published var selectedImage: PhotosPickerItem? {
         didSet {
             Task { try await loadImage(fromItem: selectedImage)}
@@ -46,23 +32,25 @@ final class FeedViewModel: ObservableObject {
             Task { try await loadCreatePostImage(fromItem: selectedCreatePostImage)}
         }
     }
-    @Published var profileImage: Image = Image("no_profile")
-    @Published var coverImage: Image = Image("no_profile")
+    @Published var profileImage: Image = Image(.noProfile)
+    @Published var coverImage: Image = Image(.noProfile)
     @Published var creaPostImage: Image?
     @Published var currenUser: User?
-    private var cancellables = Set<AnyCancellable>()
-    private var uiImage: UIImage?
     @Published var mindText: String = ""
     @Published var showCreatePostPicker: Bool = false
+    private var cancellables = Set<AnyCancellable>()
+    private var uiImage: UIImage?
     
     init() {
-        UserService.shared.$currentUser
-            .sink { [weak self] currentUser in
+        UserService.shared.$currentUser.sink { [weak self] currentUser in
                 self?.currenUser = currentUser
-            }
-            .store(in: &cancellables)
+            }.store(in: &cancellables)
         setupFriends()
-        setupPosts()
+        Task {
+            posts = try await PostService.fetchFeedPost()
+            guard let uid = Auth.auth().currentUser?.uid else { return }
+            myPostIndexes = posts.enumerated().filter { $0.element.userId == uid }.map { $0.offset }
+        }
     }
     
     private func setupFriends() {
@@ -72,16 +60,6 @@ final class FeedViewModel: ObservableObject {
         .store(in: &cancellables)
     }
     
-    private func setupPosts() {
-        for index in (0 ..< posts.count) {
-            posts[index].user = users.first(where: { $0.id == posts[index].userId })
-            if posts[index].user == users[0] {
-                myPostIndexes.append(index)
-            }
-        }
-    }
-    
-    @MainActor
     func loadImage(fromItem item: PhotosPickerItem?) async throws {
         guard let item = item else { return }
         guard let data = try? await item.loadTransferable(type: Data.self) else { print("DATA ERROR"); return }
@@ -91,7 +69,6 @@ final class FeedViewModel: ObservableObject {
         try await updateProfileImageName()
     }
     
-    @MainActor
     func loadCoverImage(fromItem item: PhotosPickerItem?) async throws {
         guard let item = item else { return }
         guard let data = try? await item.loadTransferable(type: Data.self) else { print("DATA ERROR"); return }
@@ -101,7 +78,6 @@ final class FeedViewModel: ObservableObject {
         try await updateCoverImageName()
     }
     
-    @MainActor
     func loadCreatePostImage(fromItem item: PhotosPickerItem?) async throws {
         guard let item = item else { return }
         guard let data = try? await item.loadTransferable(type: Data.self) else { print("DATA ERROR"); return }

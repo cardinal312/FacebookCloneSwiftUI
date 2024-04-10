@@ -20,7 +20,7 @@ struct FeedView: View {
                         DividerView(width: proxy.size.width)
                         StoryFeedView(viewModel: viewModel)
                         DividerView(width: proxy.size.width)
-                        ForEach(0 ..< viewModel.posts.count) { index in
+                        ForEach(0 ..< viewModel.posts.count, id: \.self) { index in
                             PostView(isVideo: false, viewModel: viewModel, index: index)
                         }
                         DividerView(width: proxy.size.width - 15)

@@ -7,9 +7,11 @@
 
 import SwiftUI
 import AVKit
+import Kingfisher
 
 struct PostView: View {
-    private var isVideo: Bool = false
+    
+    private var isVideo: Bool
     @StateObject private var viewModel: FeedViewModel
     private var index: Int
     
@@ -22,11 +24,19 @@ struct PostView: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Image(viewModel.posts[index].user?.profileImageName ?? "")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 40, height: 40)
-                    .cornerRadius(.infinity)
+                ZStack {
+                    Image(.noProfile)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 40, height: 40)
+                        .clipShape(Circle())
+                    KFImage(URL(string: viewModel.posts[index].user?.profileImageName ?? ""))
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 40, height: 40)
+                        .clipShape(Circle())
+                }
+                
                 VStack(alignment: .leading, spacing: 0) {
                     Text("\(viewModel.posts[index].user?.firstName ?? "") \(viewModel.posts[index].user?.familyName ?? "")")
                         .font(.system(size: 14, weight: .semibold))
@@ -52,7 +62,7 @@ struct PostView: View {
             Text(viewModel.posts[index].postTitle)
                 .padding(.horizontal)
             if !isVideo {
-                Image(viewModel.posts[index].postUrl)
+                KFImage(URL(string: viewModel.posts[index].postUrl))
                     .resizable()
                     .scaledToFill()
             } else {

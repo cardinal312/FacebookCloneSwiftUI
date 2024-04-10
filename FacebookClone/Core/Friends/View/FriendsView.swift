@@ -34,7 +34,7 @@ struct FriendsView: View {
                         })
                     }
                     .padding(.horizontal)
-                    ForEach(0 ..< viewModel.friendsRequests.count) { index in
+                    ForEach(0 ..< viewModel.friendsRequests.count, id: \.self) { index in
                         FriendCell(viewModel: viewModel, index: index)
                     }
                     Spacer()

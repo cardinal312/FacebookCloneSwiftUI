@@ -42,7 +42,7 @@ struct CreatePostView: View {
                                 ChoiceView(iconName: "person.2.fill", iconText: "Friends")
                                 ChoiceView(iconName: "", iconText: "Album")
                             }
-                            ChoiceView(iconName: "camera", iconText: "Off")
+                                ChoiceView(iconName: "camera", iconText: "Off")
                         }
                         .padding(.horizontal, 12)
                     }
