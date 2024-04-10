@@ -39,6 +39,7 @@
 		FA3414EE2B866D19003C5177 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3414ED2B866D19003C5177 /* FriendCell.swift */; };
 		FA3F19FC2B820EBE008E7426 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3F19FB2B820EBE008E7426 /* CustomButton.swift */; };
 		FA3F19FE2B820F3A008E7426 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3F19FD2B820F3A008E7426 /* ProfileHeaderView.swift */; };
+		FA4DEE842BC6E21F0017CF2C /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4DEE832BC6E21F0017CF2C /* Extension.swift */; };
 		FA4F16F22B84FA6C008EC0A2 /* CreatePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4F16F12B84FA6C008EC0A2 /* CreatePostView.swift */; };
 		FA4F16F42B8500DF008EC0A2 /* ChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4F16F32B8500DF008EC0A2 /* ChoiceView.swift */; };
 		FA55AA542B7BC5A600BCBB93 /* FacebookCloneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55AA532B7BC5A600BCBB93 /* FacebookCloneApp.swift */; };
@@ -104,6 +105,7 @@
 		FA3414ED2B866D19003C5177 /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		FA3F19FB2B820EBE008E7426 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		FA3F19FD2B820F3A008E7426 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		FA4DEE832BC6E21F0017CF2C /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		FA4F16F12B84FA6C008EC0A2 /* CreatePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostView.swift; sourceTree = "<group>"; };
 		FA4F16F32B8500DF008EC0A2 /* ChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceView.swift; sourceTree = "<group>"; };
 		FA55AA502B7BC5A600BCBB93 /* FacebookClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FacebookClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -235,6 +237,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		FA4DEE822BC6E1FD0017CF2C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				FA4DEE832BC6E21F0017CF2C /* Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		FA55AA472B7BC5A600BCBB93 = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +288,7 @@
 		FA55AA612B7BC5C400BCBB93 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				FA4DEE822BC6E1FD0017CF2C /* Extension */,
 				FA8D421A2B8CE8A50066D1D4 /* Plist */,
 				FA20E67B2B7E7A4E003670A8 /* Helpers.swift */,
 			);
@@ -602,6 +613,7 @@
 				FA20E67C2B7E7A4E003670A8 /* Helpers.swift in Sources */,
 				FA20E6752B7E7016003670A8 /* MyStoryCardView.swift in Sources */,
 				FA20E67A2B7E76BA003670A8 /* StoryCardView.swift in Sources */,
+				FA4DEE842BC6E21F0017CF2C /* Extension.swift in Sources */,
 				FA1622562B7D266000CEB6D2 /* ProfileView.swift in Sources */,
 				FA11A7602BC2690400B4A84C /* ImageUploader.swift in Sources */,
 				FA205DD92B8AE9B9003CB218 /* CustomTextFieldViewModifier.swift in Sources */,

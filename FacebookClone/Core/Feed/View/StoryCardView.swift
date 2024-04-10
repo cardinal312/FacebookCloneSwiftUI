@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct StoryCardView: View {
     @StateObject private var viewModel: FeedViewModel
@@ -17,31 +18,47 @@ struct StoryCardView: View {
     }
     
     var body: some View {
-        Image(viewModel.friends[index].coverImageName ?? "")
-            .resizable()
-            .scaledToFill()
-            .frame(width: 100, height: 170)
-            .clipShape(RoundedRectangle(cornerRadius: 15))
-            .overlay {
-                VStack(alignment: .leading) {
-                    Image(viewModel.friends[index].profileImageName ?? "")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 35, height: 35)
-                        .cornerRadius(.infinity)
-                        .overlay {
-                            Circle()
-                                .stroke(.blue, lineWidth: 3)
-                        }
-                    Spacer()
-                    Text("\(viewModel.friends[index].firstName) \(viewModel.friends[index].familyName)")
-                        .foregroundStyle(.white)
-                        .font(.system(size: 12, weight: .semibold))
-                    HStack { Spacer() }
+        if let friend = viewModel.friends[safe: index] {
+            ZStack {
+                Image(.noProfile)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 100, height: 170)
+                    .clipShape(RoundedRectangle(cornerRadius: 15))
+                KFImage(URL(string: friend.coverImageName ?? ""))
+                    .resizable()
+                    .frame(width: 100, height: 170)
+                    .scaledToFill()
+                    .clipShape(RoundedRectangle(cornerRadius: 15))
                 }
-                .padding(.leading, 8)
-                .padding(.vertical, 8)
+                .overlay {
+                    VStack(alignment: .leading) {
+                        ZStack {
+                            Image(.noProfile)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 35, height: 35)
+                                .clipShape(Circle())
+                            KFImage(URL(string: friend.profileImageName ?? ""))
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 35, height: 35)
+                                .clipShape(Circle())
+                        }
+                            .overlay {
+                                Circle()
+                                    .stroke(.blue, lineWidth: 3)
+                            }
+                        Spacer()
+                        Text("\(friend.firstName) \(friend.familyName)")
+                            .foregroundStyle(.white)
+                            .font(.system(size: 12, weight: .semibold))
+                        HStack { Spacer() }
+                    }
+                    .padding(.leading, 8)
+                    .padding(.vertical, 8)
             }
+        }
     }
 }
 

@@ -17,7 +17,6 @@ struct Post: Identifiable, Hashable, Codable {
     var postShares: Int
     var postUrl: String
     var isVideo: Bool
-    let timesTamp: Timestamp //Times need firebase
+    let timesTamp: Timestamp // Times need firebase
     var user: User?
-    
 }
