@@ -7,6 +7,8 @@
 
 import SwiftUI
 import Kingfisher
+import AVKit
+import PhotosUI
 
 struct CreatePostView: View {
     @Environment(\.dismiss) private var dissmis
@@ -42,20 +44,29 @@ struct CreatePostView: View {
                                 ChoiceView(iconName: "person.2.fill", iconText: "Friends")
                                 ChoiceView(iconName: "", iconText: "Album")
                             }
-                                ChoiceView(iconName: "camera", iconText: "Off")
+                            ChoiceView(iconName: "camera", iconText: "Off")
                         }
                         .padding(.horizontal, 12)
                     }
                     .padding()
                     TextField("What's on your mind?", text: $viewModel.mindText, axis: .vertical)
-                        .padding(.leading, 30)
-                    viewModel.creaPostImage?
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: proxy.size.width - 30, height: 300)
-                        .clipped()
-                        .padding(.leading)
-                        .padding(.top)
+                        .padding(.horizontal)
+                    ZStack {
+                        viewModel.creaPostImage?
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: proxy.size.width - 30, height: 300)
+                            .clipped()
+                            .padding(.leading)
+                            .padding(.top)
+                        if let createdVideoUrl = viewModel.createdVideoUrl {
+                            VideoPlayer(player: AVPlayer(url: createdVideoUrl))
+                                .frame(width: proxy.size.width - 30, height: 300)
+                                .scaledToFill()
+                                .padding(.leading)
+                                .padding(.top)
+                        }
+                    }
                     Spacer()
                     Divider()
                     HStack(spacing: 50) {
@@ -80,10 +91,10 @@ struct CreatePostView: View {
                                 .frame(width: 18, height: 18)
                                 .foregroundStyle(.red)
                         })
-                        Button(action: {}, label: {
+                        PhotosPicker(selection: $viewModel.selectedVideo, matching: .any(of: [.videos, .not(.images)])) {
                             Image(systemName: "ellipsis.circle.fill")
                                 .foregroundStyle(Color(.darkGray))
-                        })
+                        }
                         Spacer()
                     }
                 }
@@ -91,6 +102,9 @@ struct CreatePostView: View {
                     ToolbarItem(placement: .navigationBarLeading) {
                         HStack {
                             Button(action: {
+                                if let createdVideoUrl = viewModel.createdVideoUrl {
+                                    viewModel.cleanupTemporaryFile(url: createdVideoUrl)
+                                }
                                 dissmis()
                             }, label: {
                                 Image(systemName: "arrow.left")
@@ -121,7 +135,7 @@ struct CreatePostView: View {
                         })
                         .disabled(viewModel.mindText.count == 0)
                     }
-            }
+                }
             }
             .photosPicker(isPresented: $viewModel.showCreatePostPicker, selection: $viewModel.selectedCreatePostImage)
         }

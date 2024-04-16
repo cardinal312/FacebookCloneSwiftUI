@@ -32,9 +32,15 @@ final class FeedViewModel: ObservableObject {
             Task { try await loadCreatePostImage(fromItem: selectedCreatePostImage)}
         }
     }
+    @Published var selectedVideo: PhotosPickerItem? {
+        didSet {
+            Task { try await loadVideo() }
+        }
+    }
     @Published var profileImage: Image = Image(.noProfile)
     @Published var coverImage: Image = Image(.noProfile)
     @Published var creaPostImage: Image?
+    @Published var createdVideoUrl: URL?
     @Published var currenUser: User?
     @Published var mindText: String = ""
     @Published var showCreatePostPicker: Bool = false
@@ -78,6 +84,13 @@ final class FeedViewModel: ObservableObject {
         try await updateCoverImageName()
     }
     
+    func loadVideo() async throws {
+        guard let item = selectedVideo else { return }
+        guard let data = try? await item.loadTransferable(type: Data.self) else { print("DATA VIDEO ERROR"); return }
+        print("Video -->> \(data) <--") //MARK: - Just catch video url
+        createdVideoUrl = saveDataToTemporaryDirectory(data: data)
+    }
+    
     func loadCreatePostImage(fromItem item: PhotosPickerItem?) async throws {
         guard let item = item else { return }
         guard let data = try? await item.loadTransferable(type: Data.self) else { print("DATA ERROR"); return }
@@ -102,6 +115,26 @@ final class FeedViewModel: ObservableObject {
     
     func uploadPost() async throws {
         try await PostService.uploadPost(postTitle: mindText, uiImage: uiImage)
+    }
+    
+    private func saveDataToTemporaryDirectory(data: Data) -> URL {
+        do {
+            let fileUrl = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("video.mp4")
+            try data.write(to: fileUrl)
+            return fileUrl
+        } catch {
+            fatalError("Failed to save video to temporary directory -->> \(error)")
+        }
+    }
+    
+    func cleanupTemporaryFile(url: URL) {
+        do {
+            try FileManager.default.removeItem(at: url)
+            createdVideoUrl = nil
+            mindText = ""
+        } catch {
+            fatalError("Failed to remove video \(error)")
+        }
     }
 }
  
