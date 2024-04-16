@@ -21,6 +21,15 @@ final class PostService {
         try await postRef.setData(encodedPost)
     }
     
+    static func uploadVideoPost(postTitle: String, data: Data) async throws {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        guard let videoUrl = try await VideoUploader.uploadVideo(data: data) else { return }
+        let postRef = Firestore.firestore().collection("posts").document()
+        let post = Post(id: postRef.documentID, userId: uid, postTitle: postTitle, postLikes: 2, postShares: 3, postUrl: videoUrl, isVideo: true, timesTamp: Timestamp())
+        guard let encodedPost = try? Firestore.Encoder().encode(post) else { return }
+        try await postRef.setData(encodedPost)
+    }
+    
     static func fetchFeedPost() async throws -> [Post] {
         let snapshot = try await Firestore.firestore().collection("posts").getDocuments()//.order(by: "timestamp", descending: true).getDocuments()
         var posts = try snapshot.documents.compactMap { try $0.data(as: Post.self) }

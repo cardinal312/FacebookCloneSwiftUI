@@ -46,6 +46,7 @@ final class FeedViewModel: ObservableObject {
     @Published var showCreatePostPicker: Bool = false
     private var cancellables = Set<AnyCancellable>()
     private var uiImage: UIImage?
+    private var videoData: Data?
     
     init() {
         UserService.shared.$currentUser.sink { [weak self] currentUser in
@@ -88,6 +89,8 @@ final class FeedViewModel: ObservableObject {
         guard let item = selectedVideo else { return }
         guard let data = try? await item.loadTransferable(type: Data.self) else { print("DATA VIDEO ERROR"); return }
         print("Video -->> \(data) <--") //MARK: - Just catch video url
+        self.videoData = data
+        //VideoUploader.uploadVideo(data: videoData)
         createdVideoUrl = saveDataToTemporaryDirectory(data: data)
     }
     
@@ -114,7 +117,13 @@ final class FeedViewModel: ObservableObject {
     }
     
     func uploadPost() async throws {
-        try await PostService.uploadPost(postTitle: mindText, uiImage: uiImage)
+        if let createdVideoUrl = createdVideoUrl {
+            guard let videoData = videoData else { return }
+            try await PostService.uploadVideoPost(postTitle: mindText, data: videoData)
+            cleanupTemporaryFile(url: createdVideoUrl)
+        } else {
+            try await PostService.uploadPost(postTitle: mindText, uiImage: uiImage)
+        }
     }
     
     private func saveDataToTemporaryDirectory(data: Data) -> URL {
