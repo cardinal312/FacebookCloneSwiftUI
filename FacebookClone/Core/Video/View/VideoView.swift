@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct VideoView: View {
+    @StateObject private var viewModel = FeedViewModel()
+    
     var body: some View {
         NavigationView {
             ScrollView {
                 VideoOptionsView()
-                ForEach(0 ..< 3) { _ in
-                    PostView(isVideo: true, viewModel: FeedViewModel(), index: 0)
+                ForEach(0 ..< viewModel.videoPosts.count, id: \.self) { index in
+                    PostView(isVideo: true, viewModel: viewModel, index: index)
                 }
             }
             .scrollIndicators(.hidden)

@@ -30,8 +30,8 @@ final class PostService {
         try await postRef.setData(encodedPost)
     }
     
-    static func fetchFeedPost() async throws -> [Post] {
-        let snapshot = try await Firestore.firestore().collection("posts").getDocuments()//.order(by: "timestamp", descending: true).getDocuments()
+    static func fetchFeedPost(isVideo: Bool) async throws -> [Post] {
+        let snapshot = try await Firestore.firestore().collection("posts").whereField("isVideo", isEqualTo: isVideo).getDocuments()
         var posts = try snapshot.documents.compactMap { try $0.data(as: Post.self) }
         print("My post ->> \(posts)")
         for i in 0..<posts.count {
@@ -40,6 +40,6 @@ final class PostService {
             posts[i].user = postUser
             print("My id ->> \(postUser)")
         }
-        return posts
+        return posts.sorted { $0.timesTamp.dateValue() > $1.timesTamp.dateValue()}
     }
 }

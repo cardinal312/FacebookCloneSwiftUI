@@ -15,6 +15,7 @@ final class FeedViewModel: ObservableObject {
     
     @Published var friends: [User] = []
     @Published var posts: [Post] = []
+    @Published var videoPosts: [Post] = []
     @Published var myPostIndexes: [Int] = []
     
     @Published var selectedImage: PhotosPickerItem? {
@@ -54,7 +55,8 @@ final class FeedViewModel: ObservableObject {
             }.store(in: &cancellables)
         setupFriends()
         Task {
-            posts = try await PostService.fetchFeedPost()
+            posts = try await PostService.fetchFeedPost(isVideo: false)
+            videoPosts = try await PostService.fetchFeedPost(isVideo: true)
             guard let uid = Auth.auth().currentUser?.uid else { return }
             myPostIndexes = posts.enumerated().filter { $0.element.userId == uid }.map { $0.offset }
         }

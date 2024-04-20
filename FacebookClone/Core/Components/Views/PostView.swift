@@ -30,7 +30,7 @@ struct PostView: View {
                         .scaledToFill()
                         .frame(width: 40, height: 40)
                         .clipShape(Circle())
-                    KFImage(URL(string: viewModel.posts[index].user?.profileImageName ?? ""))
+                    KFImage(URL(string: !isVideo ? viewModel.posts[index].user?.profileImageName ?? "" : viewModel.videoPosts[index].user?.profileImageName ?? ""))
                         .resizable()
                         .scaledToFill()
                         .frame(width: 40, height: 40)
@@ -38,8 +38,10 @@ struct PostView: View {
                 }
                 
                 VStack(alignment: .leading, spacing: 0) {
-                    Text("\(viewModel.posts[index].user?.firstName ?? "") \(viewModel.posts[index].user?.familyName ?? "")")
+                    Text( !isVideo ? "No Video" : "Is video")  //TODO: Sould be use view
+                          
                         .font(.system(size: 14, weight: .semibold))
+                          
                     HStack(spacing: 5) {
                         Text("1 d")
                         Circle()
