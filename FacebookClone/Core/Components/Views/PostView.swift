@@ -38,8 +38,8 @@ struct PostView: View {
                 }
                 
                 VStack(alignment: .leading, spacing: 0) {
-                    Text( !isVideo ? "No Video" : "Is video")  //TODO: Sould be use view
-                          
+                    Text( !isVideo ? "\(viewModel.posts[index].user?.firstName ?? "") \(viewModel.posts[index].user?.familyName ?? "")" :
+                          "\(viewModel.videoPosts[index].user?.firstName ?? "") \(viewModel.videoPosts[index].user?.familyName ?? "")")
                         .font(.system(size: 14, weight: .semibold))
                           
                     HStack(spacing: 5) {
@@ -61,17 +61,19 @@ struct PostView: View {
                 .fontWeight(.bold)
             }
             .padding(.horizontal)
-            Text(viewModel.posts[index].postTitle)
-                .padding(.horizontal)
             if !isVideo {
+                Text(viewModel.posts[index].postTitle)
+                .padding(.horizontal)
                 KFImage(URL(string: viewModel.posts[index].postUrl))
                     .resizable()
                     .scaledToFill()
             } else {
+                Text(viewModel.videoPosts[index].postTitle)
+                    .padding(.horizontal)
                 //MARK: - AVKit Video
-                if let url = URL(string: Helpers.VideoUrl.bigBuckBunny) {
+                if let url = URL(string: viewModel.videoPosts[index].postUrl) {
                     VideoPlayer(player: AVPlayer(url: url))
-                        .frame(width: 40)
+                        .frame(height: 400)
                 }
             }
             HStack(spacing: 3) {
